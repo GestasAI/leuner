@@ -130,10 +130,14 @@ def head(cfg, url, styles):
 <meta property="og:title" content="{TITLE_LONG}">
 <meta property="og:description" content="{DESCRIPTION}">
 <meta property="og:image" content="{url}og-image.png">
+<meta property="og:image:secure_url" content="{url}og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{site}: Inteligencia artificial emocional: el programa de investigación Leuner, con un dibujo de dendrita a trazos">
 <meta property="og:image" content="{url}og-image-square.png">
+<meta property="og:image:secure_url" content="{url}og-image-square.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="1200">
 <meta property="article:published_time" content="{PUBLISHED}">
