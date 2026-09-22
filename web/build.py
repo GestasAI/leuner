@@ -17,7 +17,7 @@ Site identity (URL, site name, organisation, author, official profiles, analytic
 with where the page is really served.
 
 Usage:  python build.py            (values from site.json)
-        python build.py --url https://launer.es/research/lnr-2026-01/
+        python build.py --url https://leuner.es/research/lnr-2026-01/
 """
 import argparse
 import html
@@ -31,15 +31,15 @@ DIST = HERE / "dist"
 CONFIG = HERE / "site.json"
 
 TITLE_LONG = "Construir una dendrita dentro de un modelo de lenguaje"
-SUBTITLE = "Launer: una inteligencia emocional artificial hecha de partes diminutas, para acompañar"
-DESCRIPTION = ("Launer (GestasAI): una dendrita artificial dentro de Gemma 4. Primer hito medido y "
+SUBTITLE = "Leuner: una inteligencia emocional artificial hecha de partes diminutas, para acompañar"
+DESCRIPTION = ("Leuner (GestasAI): una dendrita artificial dentro de Gemma 4. Primer hito medido y "
                "programa de investigación en inteligencia emocional para acompañar.")
 REPORT_ID = "LNR-2026-01"
 VERSION = "0.2"
 PUBLISHED = "2026-09-22"
 MODIFIED = "2026-09-22"
 FAQ = [
-    ("¿Qué es Launer?",
+    ("¿Qué es Leuner?",
      "Un programa de investigación de GestasAI que construye una dendrita artificial dentro de Gemma 4, "
      "un modelo de lenguaje abierto, siguiendo la organización de la dendrita biológica: recibir, decidir "
      "en local, mirarse en el resultado, moderar y consolidar."),
@@ -132,7 +132,7 @@ def head(cfg, url, styles):
 <meta property="og:image" content="{url}og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{site}: Inteligencia artificial emocional: el programa de investigación Launer, con un dibujo de dendrita a trazos">
+<meta property="og:image:alt" content="{site}: Inteligencia artificial emocional: el programa de investigación Leuner, con un dibujo de dendrita a trazos">
 <meta property="og:image" content="{url}og-image-square.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="1200">
@@ -234,7 +234,7 @@ def write_static(cfg, url, body_markdown):
 def main():
     cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
     ap = argparse.ArgumentParser()
-    ap.add_argument("--url", default=cfg.get("url", "https://launer.es/"),
+    ap.add_argument("--url", default=cfg.get("url", "https://leuner.es/"),
                     help="URL pública de la página, con barra final (por defecto, site.json)")
     ap.add_argument("--analytics", default=cfg.get("analytics_id"),
                     help="ID de medición de Google Analytics (por defecto, site.json); vacío para no incluirlo")
@@ -248,7 +248,7 @@ def main():
     styles = src[len(title_tag):head_end].strip()
     body = src[head_end:].strip()
     # La cita BibTeX apunta a la misma URL que la canónica.
-    body = re.sub(r"url\s*=\s*\{https://launer\.es[^}]*\}", f"url         = {{{url}}}", body)
+    body = re.sub(r"url\s*=\s*\{https://leuner\.es[^}]*\}", f"url         = {{{url}}}", body)
 
     DIST.mkdir(exist_ok=True)
     (DIST / "index.html").write_text(head(cfg, url, styles) + body + "\n</body>\n</html>\n", encoding="utf-8")

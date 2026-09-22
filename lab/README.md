@@ -1,6 +1,6 @@
 # Laboratorio de proteínas
 
-Código, vectores y mediciones de la fase 1 de la dendrita de Launer y de los primeros ensayos de las fases 2 y 4. Todo lo que aquí se afirma tiene un número reproducible con semilla fija.
+Código, vectores y mediciones de la fase 1 de la dendrita de Leuner y de los primeros ensayos de las fases 2 y 4. Todo lo que aquí se afirma tiene un número reproducible con semilla fija.
 
 ## Qué es una proteína
 

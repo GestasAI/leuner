@@ -5,7 +5,7 @@ también valen: el objetivo es **saber**, no aprobar. Pruebas:
   P1  Generación multi-token  — ¿da una respuesta completa y fluida, no solo 1 token?
   P2  Daño colateral          — inyectar la proteína de A, ¿empeora la tarea B?
   P3  Composición             — A + B inyectadas juntas, ¿siguen funcionando las dos?
-  P4  Capacidad propia (F2)   — una proteína de Launer (traducción EN→ES), base vs vector.
+  P4  Capacidad propia (F2)   — una proteína de Leuner (traducción EN→ES), base vs vector.
 
 Uso:
   python f1_protein_probes.py --model google/gemma-2b-it

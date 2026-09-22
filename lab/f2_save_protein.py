@@ -1,8 +1,8 @@
-"""F2 — Guardar la primera proteína de Launer como artefacto real.
+"""F2 — Guardar la primera proteína de Leuner como artefacto real.
 
 Extrae el vector-tarea de traducción EN→ES con los parámetros verificados en F1 y lo
 serializa en un archivo .protein (numpy + metadatos JSON). El artefacto resultante es
-la primera proteína empaquetada de Launer: un saber-hacer de 3 KB listo para el runtime.
+la primera proteína empaquetada de Leuner: un saber-hacer de 3 KB listo para el runtime.
 
 Formato del artefacto:
   {nombre}.protein  →  npz con:
@@ -110,7 +110,7 @@ def main():
     print(f"  Peso: {size_kb:.1f} KB | hidden={vec_f32.shape[0]} | sha256={sha256[:16]}…")
     print(f"  Metadatos: modelo={a.model} | capa={L} | scale={a.scale} | tarea={TASK}")
     print(f"  Exactitud: base={base:.0%} → +proteína={with_vec:.0%} (+{with_vec-base:.0%})")
-    print("\nPrimera proteína de Launer empaquetada.")
+    print("\nPrimera proteína de Leuner empaquetada.")
 
 
 if __name__ == "__main__":

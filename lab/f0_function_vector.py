@@ -12,7 +12,7 @@ Método (v0 — robusto, agnóstico de arquitectura):
      medir si el modelo acierta — comparado con no sumarlo.
 
 Versión v0 usa media de activaciones (Hendel et al. 2023).
-Versión v1 (Todd & Bau 2023) añade mediación causal por cabeza; ver Launer_Lab_Primera_Proteina.md.
+Versión v1 (Todd & Bau 2023) añade mediación causal por cabeza; ver Leuner_Lab_Primera_Proteina.md.
 
 Uso:
   python f0_function_vector.py --smoke                      # gpt2 en segundos

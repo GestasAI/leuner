@@ -106,7 +106,7 @@ def main():
     print(f"   {out / (name + '.f32')}   ({size} bytes ≈ {size/1024:.1f} KB)")
     print(f"   {out / (name + '.json')}  (metadatos + sha256)")
     print(f"   sha256: {sha[:16]}…")
-    print("\n  Es la primera pieza de la biblioteca de proteínas de Launer. Guárdala como oro.")
+    print("\n  Es la primera pieza de la biblioteca de proteínas de Leuner. Guárdala como oro.")
 
 
 if __name__ == "__main__":

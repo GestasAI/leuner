@@ -1,4 +1,4 @@
-"""Generate the favicon set and the social share images for launer.es.
+"""Generate the favicon set and the social share images for leuner.es.
 
 Draws the dendrite mark of assets/favicon.svg with Pillow primitives (no SVG rasteriser is
 installed), in the editorial visual system of the page: white ground, ink strokes, blue spines.
@@ -112,25 +112,25 @@ def share_image(w, h):
         background_dendrite(d, (w - 150, h - 90), h * 0.34, math.radians(-118))
         tx = 90
         draw_mark(d, tx - 6, 84, 116, stroke=9)  # el símbolo libre, en tinta, sin recuadro
-        d.text((tx + 128, 84), "Launer", font=font("georgiab.ttf", 112), fill=INK)
+        d.text((tx + 128, 84), "Leuner", font=font("georgiab.ttf", 112), fill=INK)
         d.text((tx, 262), "Inteligencia artificial emocional", font=font("georgiab.ttf", 58), fill=INK)
         write_with_bold(d, (tx, 352), [("Un programa de investigación de ", False), ("GestasAI", True), (" que construye", False)],
                         font("georgia.ttf", 29), font("georgiab.ttf", 29), INK_2)
         d.text((tx, 390), "una dendrita artificial dentro de un modelo de lenguaje abierto.", font=font("georgia.ttf", 29), fill=INK_2)
         d.line([(tx, 470), (tx + 420, 470)], fill=LINE, width=2)
-        d.text((tx, 492), "gestasai.com     launer.es     juancarlosaguirre.es", font=font("consola.ttf", 22), fill=INK_2)
+        d.text((tx, 492), "gestasai.com     leuner.es     juancarlosaguirre.es", font=font("consola.ttf", 22), fill=INK_2)
     else:  # 1200 x 1200: marca centrada arriba, titular debajo, dendrita a trazos por detrás
         background_dendrite(d, (w - 200, h - 120), 300, math.radians(-125))
         mark = 240
         draw_mark(d, (w - mark) // 2, 130, mark, stroke=18)  # el símbolo libre, en tinta, sin recuadro
-        d.text((w / 2, 480), "Launer", font=font("georgiab.ttf", 156), fill=INK, anchor="mm")
+        d.text((w / 2, 480), "Leuner", font=font("georgiab.ttf", 156), fill=INK, anchor="mm")
         d.text((w / 2, 640), "Inteligencia artificial", font=font("georgiab.ttf", 74), fill=INK, anchor="mm")
         d.text((w / 2, 728), "emocional", font=font("georgiab.ttf", 74), fill=INK, anchor="mm")
         write_with_bold(d, (w / 2, 860), [("Un programa de investigación de ", False), ("GestasAI", True), (" que construye", False)],
                         font("georgia.ttf", 34), font("georgiab.ttf", 34), INK_2, centered=True)
         d.text((w / 2, 906), "una dendrita artificial dentro de un modelo de lenguaje abierto.", font=font("georgia.ttf", 34), fill=INK_2, anchor="mm")
         d.line([(w / 2 - 220, 990), (w / 2 + 220, 990)], fill=LINE, width=2)
-        d.text((w / 2, 1035), "gestasai.com     launer.es     juancarlosaguirre.es", font=font("consola.ttf", 26), fill=INK_2, anchor="mm")
+        d.text((w / 2, 1035), "gestasai.com     leuner.es     juancarlosaguirre.es", font=font("consola.ttf", 26), fill=INK_2, anchor="mm")
     return img
 
 

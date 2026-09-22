@@ -1,6 +1,6 @@
 # Hoja de ruta
 
-Launer avanza por olas. Solo hay una activa, y una ola se cierra cuando sus hipótesis tienen un resultado medido, positivo o negativo, y publicado. Cada componente "inspirado en el cerebro" tiene que superar su ablación: si retirarlo no cambia nada, no entra.
+Leuner avanza por olas. Solo hay una activa, y una ola se cierra cuando sus hipótesis tienen un resultado medido, positivo o negativo, y publicado. Cada componente "inspirado en el cerebro" tiene que superar su ablación: si retirarlo no cambia nada, no entra.
 
 ## Hipótesis contrastables
 
