@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "Si usas este trabajo, cita el informe técnico LNR-2026-01."
+title: "Launer: construir una dendrita dentro de un modelo de lenguaje"
+type: software
+authors:
+  - family-names: "Aguirre Pérez"
+    given-names: "Juan Carlos"
+    affiliation: "GestasAI"
+    website: "https://juancarlosaguirre.es"
+version: "0.2"
+date-released: "2026-09-22"
+url: "https://launer.es"
+repository-code: "https://github.com/GestasAI/launer"
+license: Apache-2.0
+keywords:
+  - dendritas
+  - modelos de lenguaje
+  - Gemma 4
+  - vectores de tarea
+  - inteligencia emocional
+  - acompañamiento
+preferred-citation:
+  type: report
+  title: "Construir una dendrita dentro de un modelo de lenguaje: Launer, una inteligencia emocional artificial hecha de partes diminutas"
+  authors:
+    - family-names: "Aguirre Pérez"
+      given-names: "Juan Carlos"
+      affiliation: "GestasAI"
+  institution:
+    name: "GestasAI"
+  number: "LNR-2026-01"
+  year: 2026
+  url: "https://launer.es"

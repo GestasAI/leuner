@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Model checkpoints: never in the repository (Gemma 4 is downloaded from Hugging Face)
+models/
+*.safetensors
+*.gguf
+*.litertlm
+*.tar.gz
+
+# Build output and logs
+web/dist/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

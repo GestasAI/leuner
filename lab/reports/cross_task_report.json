@@ -1,0 +1,225 @@
+{
+  "date_utc": "2026-09-22T19:32:17Z",
+  "model": "D:/GESTASAI/Desarrollos/aurora/files/modelo/gemma-4-e2b-it-hf",
+  "layer": 20,
+  "scale": 4.0,
+  "k_shot": 5,
+  "n_extract": 10,
+  "seed": 0,
+  "cosine": {
+    "es_en~mixed": 0.8818,
+    "capital~es_en": 0.7096,
+    "capital~mixed": 0.9427
+  },
+  "accuracy": {
+    "capital": {
+      "n": 15,
+      "base": 0.0,
+      "es_en": 0.0,
+      "capital": 0.9333333333333333,
+      "mixed": 0.9333333333333333
+    },
+    "translate_es_en": {
+      "n": 15,
+      "base": 0.0,
+      "es_en": 0.9333333333333333,
+      "capital": 0.0,
+      "mixed": 0.0
+    },
+    "antonym": {
+      "n": 15,
+      "base": 0.0,
+      "es_en": 0.0,
+      "capital": 0.0,
+      "mixed": 0.0
+    },
+    "continent": {
+      "n": 15,
+      "base": 0.0,
+      "es_en": 0.0,
+      "capital": 0.0,
+      "mixed": 0.0
+    },
+    "next_note": {
+      "n": 7,
+      "base": 0.0,
+      "es_en": 0.0,
+      "capital": 0.0,
+      "mixed": 0.0
+    },
+    "next_number": {
+      "n": 10,
+      "base": 0.0,
+      "es_en": 0.0,
+      "capital": 0.0,
+      "mixed": 0.0
+    }
+  },
+  "generations": {
+    "capital+es_en": [
+      {
+        "input": "France",
+        "expected": "Paris",
+        "base": "The capital of France is **Paris**.",
+        "protein": "France"
+      },
+      {
+        "input": "Brazil",
+        "expected": "Brasilia",
+        "base": "The capital of Brazil is **Brasília",
+        "protein": "Brazil's capital is **Brasília"
+      },
+      {
+        "input": "Chile",
+        "expected": "Santiago",
+        "base": "The capital of Chile is **Santiago**.",
+        "protein": "Chile's capital is **Santiago**."
+      }
+    ],
+    "translate_es_en+capital": [
+      {
+        "input": "perro",
+        "expected": "dog",
+        "base": "The English translation of \"perro\"",
+        "protein": "Madrid"
+      },
+      {
+        "input": "amor",
+        "expected": "love",
+        "base": "The English translation of \"amor\" is",
+        "protein": "Madrid"
+      },
+      {
+        "input": "noche",
+        "expected": "night",
+        "base": "The English translation of \"noche\"",
+        "protein": "Madrid"
+      }
+    ],
+    "antonym+capital": [
+      {
+        "input": "good",
+        "expected": "bad",
+        "base": "The most common and direct opposite of **",
+        "protein": "The most common and direct opposite of **"
+      },
+      {
+        "input": "wide",
+        "expected": "narrow",
+        "base": "The most common and direct opposite of **",
+        "protein": "The most common and direct opposite of **"
+      },
+      {
+        "input": "full",
+        "expected": "empty",
+        "base": "The most common and direct opposite of **",
+        "protein": "The most common and direct opposite of **"
+      }
+    ],
+    "continent+capital": [
+      {
+        "input": "Fiji",
+        "expected": "Oceania",
+        "base": "Fiji is an **island nation**",
+        "protein": "Fiji is an **island nation**"
+      },
+      {
+        "input": "Belgium",
+        "expected": "Europe",
+        "base": "Belgium is a **country**, not a",
+        "protein": "Belgium is a **country**, not a"
+      },
+      {
+        "input": "Colombia",
+        "expected": "South",
+        "base": "Colombia is located in **South America**.",
+        "protein": "Bogotá, Colombia is located in **"
+      }
+    ],
+    "next_note+capital": [
+      {
+        "input": "D",
+        "expected": "E",
+        "base": "The next musical note after **D**",
+        "protein": "The next musical note after **D**"
+      },
+      {
+        "input": "Fa",
+        "expected": "Sol",
+        "base": "The next musical note after **F**",
+        "protein": "The next musical note after **F**"
+      },
+      {
+        "input": "Mi",
+        "expected": "Fa",
+        "base": "The next musical note after **Mi**",
+        "protein": "The next musical note after **Mi**"
+      }
+    ],
+    "next_number+capital": [
+      {
+        "input": "eleven",
+        "expected": "twelve",
+        "base": "The number after eleven is **twelve",
+        "protein": "New"
+      },
+      {
+        "input": "nineteen",
+        "expected": "twenty",
+        "base": "The number after nineteen is **twenty**.",
+        "protein": "Newteen"
+      },
+      {
+        "input": "seventeen",
+        "expected": "eighteen",
+        "base": "The number after seventeen is **eighteen",
+        "protein": "Seventeen is followed by **eight"
+      }
+    ],
+    "capital+mixed": [
+      {
+        "input": "France",
+        "expected": "Paris",
+        "base": "The capital of France is **Paris**.",
+        "protein": "Paris"
+      },
+      {
+        "input": "Brazil",
+        "expected": "Brasilia",
+        "base": "The capital of Brazil is **Brasília",
+        "protein": "Brasília"
+      },
+      {
+        "input": "Chile",
+        "expected": "Santiago",
+        "base": "The capital of Chile is **Santiago**.",
+        "protein": "Santiago"
+      }
+    ],
+    "translate_es_en+mixed": [
+      {
+        "input": "perro",
+        "expected": "dog",
+        "base": "The English translation of \"perro\"",
+        "protein": "Perro = **dog**"
+      },
+      {
+        "input": "amor",
+        "expected": "love",
+        "base": "The English translation of \"amor\" is",
+        "protein": "Love"
+      },
+      {
+        "input": "noche",
+        "expected": "night",
+        "base": "The English translation of \"noche\"",
+        "protein": "Night"
+      }
+    ]
+  },
+  "artifacts": {
+    "capital_sha256": "5f416fa48b7796311d3ae09df24957fbf08d7b9c119a885f8472dea51c51dc6e",
+    "mixed_sha256": "1b68692d00d54143864fee960964cc4c927aaae07aad6ff1dc9776378b22d55c"
+  },
+  "elapsed_s": 831
+}

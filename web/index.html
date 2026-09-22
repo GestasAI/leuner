@@ -1,0 +1,687 @@
+<title>Launer Arquitectura Dendrítica</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-2: #f6f7f9;
+    --ink: #0e1216;
+    --ink-2: #4a5361;
+    --ink-3: #7b8592;
+    --line: #e3e6ea;
+    --line-2: #eef0f3;
+    --accent: #1a56c4;
+    --accent-soft: #e9f0fc;
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --font-ui: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-read: "Newsreader", "Georgia", "Times New Roman", serif;
+    --measure: 68ch;
+    --header-h: 60px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c1014; --bg-2: #141a20; --ink: #eaedf0; --ink-2: #aab3bd; --ink-3: #7d8791;
+      --line: #262e36; --line-2: #1b2228; --accent: #7fabec; --accent-soft: #15223a;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c1014; --bg-2: #141a20; --ink: #eaedf0; --ink-2: #aab3bd; --ink-3: #7d8791;
+    --line: #262e36; --line-2: #1b2228; --accent: #7fabec; --accent-soft: #15223a;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: calc(var(--header-h) + 16px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-read);
+    font-size: 19px;
+    line-height: 1.6;
+    padding-inline: 20px;
+    padding-block: 0 80px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+  /* Sticky header */
+  .mast {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    margin: 0 -20px; padding: 0 20px;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    -webkit-backdrop-filter: saturate(160%) blur(14px); backdrop-filter: saturate(160%) blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .mast .inner { max-width: 1120px; margin: 0 auto; height: var(--header-h); display: flex; align-items: center; gap: 24px; }
+  .mast .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-ui); font-weight: 800; font-size: 19px; letter-spacing: -0.02em; color: var(--ink); }
+  .mast .brand svg { width: 28px; height: 28px; display: block; }
+  .mast nav { display: flex; gap: 22px; margin-left: auto; font-family: var(--font-ui); font-size: 14px; font-weight: 600; }
+  .mast nav a { color: var(--ink-2); }
+  .mast nav a:hover { color: var(--ink); text-decoration: none; }
+  .mast nav .cta { color: var(--bg); background: var(--ink); padding: 7px 14px; border-radius: 999px; }
+  .mast nav .cta:hover { background: var(--accent); }
+  .mast .coord { display: none; }
+  @media (max-width: 640px) { .mast nav { gap: 14px; font-size: 13px; } .mast nav .hide-sm { display: none; } }
+
+  /* Layout */
+  .page { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 32px; padding-top: 40px; }
+  @media (min-width: 1100px) {
+    .page { grid-template-columns: 200px minmax(0, 1fr); gap: 72px; }
+    .toc-wrap { position: sticky; top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 32px); align-self: start; }
+  }
+  main { min-width: 0; }
+  article { max-width: var(--measure); }
+
+  /* Hero */
+  .kicker { font-family: var(--font-ui); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); display: flex; gap: 10px; flex-wrap: wrap; }
+  .kicker span + span::before { content: "·"; color: var(--ink-3); margin-right: 10px; }
+  h1 { font-family: var(--font-ui); font-weight: 800; font-size: clamp(40px, 6.2vw, 68px); line-height: 1.02; letter-spacing: -0.035em; margin: 18px 0 14px; text-wrap: balance; }
+  .sub { font-family: var(--font-read); font-weight: 400; font-style: italic; font-size: clamp(20px, 2.4vw, 25px); color: var(--ink-2); margin: 0 0 26px; line-height: 1.35; text-wrap: balance; }
+  .byline { font-family: var(--font-ui); font-size: 14px; color: var(--ink-2); display: grid; gap: 4px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .byline b { color: var(--ink); font-weight: 700; }
+  .byline a { color: inherit; }
+  .byline .mono { font-size: 13px; color: var(--ink-3); }
+
+  /* Key figures */
+  .stats { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 26px 0 8px; }
+  @media (min-width: 640px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+  .stat { background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 16px; }
+  .stat .num { font-family: var(--font-ui); font-weight: 800; font-size: 34px; letter-spacing: -0.03em; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .stat .num small { font-size: 18px; font-weight: 700; color: var(--ink-3); letter-spacing: 0; margin: 0 4px; }
+  .stat .lbl { font-family: var(--font-ui); font-size: 13px; color: var(--ink-2); margin-top: 8px; line-height: 1.4; }
+
+  /* Panels (abstract, answers, figures) */
+  .chassis { position: relative; border: 1px solid var(--line); background: var(--bg-2); border-radius: 14px; padding: 22px 24px; margin: 28px 0; }
+  .chassis::before, .chassis::after { content: none; }
+  .chassis .tag { position: static; display: block; margin: 0 0 12px; padding: 0; background: transparent; font-family: var(--font-ui); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+  .abstract p { margin: 10px 0 0; font-size: 18px; }
+  .abstract p:first-of-type { margin-top: 0; }
+  .abstract .en { font-style: italic; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 12px; margin-top: 14px; font-size: 16.5px; }
+  .answers dl { margin: 0; display: grid; gap: 12px; }
+  .answers dt { font-family: var(--font-ui); font-weight: 700; font-size: 16px; color: var(--ink); }
+  .answers dd { margin: 2px 0 0; font-size: 17px; color: var(--ink-2); }
+
+  /* TOC */
+  .toc-wrap details { border: 1px solid var(--line); border-radius: 12px; background: var(--bg-2); }
+  .toc-wrap summary { cursor: pointer; padding: 12px 16px; font-family: var(--font-ui); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-2); list-style: none; }
+  .toc-wrap summary::-webkit-details-marker { display: none; }
+  .toc-wrap summary::after { content: "+"; float: right; }
+  .toc-wrap details[open] summary::after { content: "–"; }
+  .toc-wrap ol { list-style: none; margin: 0; padding: 4px 16px 14px; display: grid; gap: 8px; font-family: var(--font-ui); font-size: 14px; }
+  .toc-wrap ol a { color: var(--ink-2); display: flex; gap: 10px; }
+  .toc-wrap ol a:hover { color: var(--accent); text-decoration: none; }
+  .toc-wrap ol a .n { font-size: 11px; font-weight: 700; color: var(--ink-3); min-width: 1.6em; padding-top: 3px; }
+  @media (min-width: 1100px) {
+    .toc-wrap details { border: 0; background: transparent; }
+    .toc-wrap summary { pointer-events: none; padding: 0 0 10px; border-bottom: 1px solid var(--line); }
+    .toc-wrap summary::after { content: none; }
+    .toc-wrap ol { padding: 12px 0 0; }
+  }
+
+  /* Prose */
+  h2 { font-family: var(--font-ui); font-weight: 800; font-size: 32px; line-height: 1.12; letter-spacing: -0.025em; margin: 64px 0 16px; text-wrap: balance; }
+  h2 .n { font-family: var(--font-ui); font-weight: 700; font-size: 13px; color: var(--accent); margin-right: 12px; letter-spacing: 0.04em; vertical-align: middle; }
+  h3 { font-family: var(--font-ui); font-weight: 700; font-size: 21px; letter-spacing: -0.01em; margin: 34px 0 10px; text-wrap: balance; }
+  p { margin: 0 0 18px; }
+  p.lead { font-size: 22px; line-height: 1.5; color: var(--ink); }
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--ink-3); }
+  strong { font-weight: 600; }
+  sup.ref { line-height: 0; }
+  sup.ref a { font-family: var(--font-ui); font-size: 11px; font-weight: 700; padding: 0 1px; }
+  code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 0.86em; background: var(--bg-2); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
+  pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 13px; line-height: 1.55; background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; overflow-x: auto; margin: 16px 0; }
+  .note { font-family: var(--font-ui); font-size: 15.5px; color: var(--ink-2); background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 20px 0; }
+  .dl { display: grid; grid-template-columns: 1fr; gap: 8px 20px; margin: 14px 0 20px; }
+  @media (min-width: 640px) { .dl { grid-template-columns: max-content 1fr; } }
+  .dl dt { font-family: var(--font-ui); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); padding-top: 5px; }
+  .dl dd { margin: 0; }
+
+  /* Tables */
+  .tbl { overflow-x: auto; margin: 16px 0 22px; border: 1px solid var(--line); border-radius: 12px; }
+  table { border-collapse: collapse; width: 100%; font-family: var(--font-ui); font-size: 14.5px; line-height: 1.45; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line-2); }
+  th { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); background: var(--bg-2); }
+  tr:last-child td { border-bottom: 0; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Figures */
+  figure { margin: 30px 0; }
+  figure .chassis { margin: 0; padding: 18px 18px 14px; background: var(--bg); }
+  figure svg { width: 100%; height: auto; display: block; }
+  figcaption { font-family: var(--font-ui); font-size: 14px; color: var(--ink-2); margin-top: 10px; line-height: 1.5; }
+  figcaption b { color: var(--ink); font-weight: 700; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--font-ui); font-size: 13px; color: var(--ink-2); margin: 4px 0 8px; }
+  .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+  .legend .l1::before { background: var(--s1); } .legend .l2::before { background: var(--s2); } .legend .l3::before { background: var(--s3); }
+  .axis-text { font-family: var(--font-ui); font-size: 11.5px; fill: var(--ink-2); }
+  .axis-line { stroke: var(--line); stroke-width: 1; }
+  .grid-line { stroke: var(--line-2); stroke-width: 1; }
+  .dlabel { font-family: var(--font-ui); font-size: 12px; font-weight: 700; fill: var(--ink); }
+  .mark { cursor: default; }
+  .mark:hover, .mark:focus { outline: none; filter: brightness(0.9); }
+  .schem-line { stroke: var(--ink); stroke-width: 1.6; fill: none; }
+  .schem-thin { stroke: var(--ink-3); stroke-width: 1; fill: none; stroke-dasharray: 3 4; }
+  .schem-text { font-family: var(--font-ui); font-size: 11.5px; fill: var(--ink-2); }
+  .schem-label { font-family: var(--font-ui); font-size: 13px; font-weight: 700; fill: var(--ink); }
+  .schem-fill { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; }
+  .schem-done { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+  .schem-acc { fill: var(--accent); }
+  .schem-acc-text { font-family: var(--font-ui); font-size: 10.5px; font-weight: 700; fill: var(--accent); letter-spacing: 0.06em; }
+  .schem-soft { fill: var(--bg-2); stroke: var(--line); stroke-width: 1.5; }
+  details.data { margin-top: 10px; }
+  details.data summary { cursor: pointer; font-family: var(--font-ui); font-size: 12.5px; font-weight: 700; color: var(--ink-3); }
+  #tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font-family: var(--font-ui); font-size: 12.5px; padding: 6px 9px; border-radius: 7px; z-index: 30; display: none; max-width: 260px; }
+
+  /* Buttons */
+  .btn { font-family: var(--font-ui); font-size: 13.5px; font-weight: 700; background: var(--ink); color: var(--bg); border: 1px solid var(--ink); padding: 10px 16px; border-radius: 999px; cursor: pointer; }
+  .btn:hover { background: var(--accent); border-color: var(--accent); }
+  .btn:active { transform: translateY(1px); }
+  .btn-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 12px; font-family: var(--font-ui); font-size: 13px; color: var(--ink-2); }
+
+  /* References */
+  .refs-wrap { font-family: var(--font-ui); font-size: 14px; line-height: 1.5; }
+  ol.refs { padding-left: 0; list-style: none; counter-reset: ref; margin: 0; }
+  ol.refs li { counter-increment: ref; display: grid; grid-template-columns: 2.6em 1fr; gap: 6px; padding: 9px 0; border-bottom: 1px solid var(--line-2); }
+  ol.refs li::before { content: counter(ref); font-weight: 700; font-size: 12px; color: var(--ink-3); padding-top: 3px; }
+  ol.refs li:target { background: var(--accent-soft); border-radius: 8px; padding-inline: 8px; }
+  ol.refs .au { font-weight: 700; color: var(--ink); }
+  ol.refs .jr { font-style: italic; }
+  ol.refs a { font-size: 13px; white-space: nowrap; }
+  .refs-group { font-family: var(--font-ui); font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); margin: 26px 0 4px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+
+  footer { max-width: 1120px; margin: 72px auto 0; border-top: 1px solid var(--line); padding-top: 22px; font-family: var(--font-ui); font-size: 13px; color: var(--ink-3); }
+  footer .about { font-family: var(--font-read); font-size: 16px; color: var(--ink-2); max-width: var(--measure); margin: 0 0 14px; line-height: 1.5; }
+  footer .row { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  footer a { color: var(--ink-2); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<header class="mast">
+  <div class="inner">
+    <a class="brand" href="#paper" aria-label="Launer, inicio">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="var(--ink)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M41 41 L27 27"/><path d="M27 27 L23 8"/><path d="M27 27 L8 23"/><circle cx="47" cy="47" r="7"/></g><g fill="var(--accent)"><circle cx="17.4" cy="13.1" r="3.6"/><circle cx="31.6" cy="17.1" r="3.6"/><circle cx="19" cy="32" r="3.6"/><circle cx="11.5" cy="30.4" r="3.6"/><circle cx="38.6" cy="29.4" r="3.6"/></g></svg>
+      Launer
+    </a>
+    <nav aria-label="Secciones del sitio">
+      <a class="hide-sm" href="#s4">El hito</a>
+      <a class="hide-sm" href="#s5">Programa</a>
+      <a href="#refs">Fuentes</a>
+      <a class="cta" href="#cita">Citar</a>
+    </nav>
+    <div class="coord">LNR-2026-01 · v0.2 · 22.09.2026</div>
+  </div>
+</header>
+
+<div class="page">
+  <aside class="toc-wrap" aria-label="Índice">
+    <details open>
+      <summary>Índice</summary>
+      <ol>
+        <li><a href="#s1"><span class="n">01</span>Por qué una dendrita</a></li>
+        <li><a href="#s2"><span class="n">02</span>Lo que hace una dendrita</a></li>
+        <li><a href="#s3"><span class="n">03</span>Lo que contendrá la nuestra</a></li>
+        <li><a href="#s4"><span class="n">04</span>El hito: la primera proteína</a></li>
+        <li><a href="#s5"><span class="n">05</span>Cómo seguirá el flujo</a></li>
+        <li><a href="#s6"><span class="n">06</span>El campo: acompañar</a></li>
+        <li><a href="#s7"><span class="n">07</span>Cuando el modelo esté completo</a></li>
+        <li><a href="#s8"><span class="n">08</span>Conclusiones y próximos pasos</a></li>
+        <li><a href="#refs"><span class="n">F</span>Fuentes</a></li>
+        <li><a href="#cita"><span class="n">C</span>Cómo citar</a></li>
+      </ol>
+    </details>
+  </aside>
+
+  <main>
+  <article id="paper">
+    <div class="kicker"><span>Ensayo científico</span><span>Programa de investigación</span><span>GestasAI</span></div>
+    <h1>Construir una dendrita dentro de un modelo de lenguaje</h1>
+    <p class="sub">Launer: una inteligencia emocional artificial hecha de partes diminutas, para acompañar</p>
+    <div class="byline">
+      <div><b><a href="https://juancarlosaguirre.es" rel="author">Juan Carlos Aguirre Pérez</a></b>, <a href="https://gestasai.com/">GestasAI</a></div>
+      <div class="mono">Versión 0.2 · Publicado el <time datetime="2026-09-22">22 de septiembre de 2026</time> · Actualizado el <time datetime="2026-09-22">22 de septiembre de 2026</time> · Modelo base: Gemma 4 E2B (Apache 2.0) · DOI pendiente</div>
+    </div>
+
+    <div class="stats" aria-label="Cifras clave">
+      <div class="stat"><div class="num">0 %<small>→</small>90 %</div><div class="lbl">Traducción sin ejemplos al inyectar una proteína de 6 KB en Gemma 4 (media 80 % en cinco semillas)</div></div>
+      <div class="stat"><div class="num">80 %</div><div class="lbl">Cadena de tres proteínas orquestadas, de Mozart a Viena, donde el modelo sin proteínas acierta 0 %</div></div>
+      <div class="stat"><div class="num">1<small>de</small>5</div><div class="lbl">Fases de la dendrita medidas; las otras cuatro, diseñadas y por construir</div></div>
+    </div>
+
+    <div class="chassis abstract">
+      <span class="tag">Resumen</span>
+      <p>Launer es un programa de investigación que toma la dendrita, la parte de la neurona que recibe y decide, como plano para construir una unidad de inteligencia emocional dentro de un modelo de lenguaje abierto. No proponemos un modelo más grande, sino uno hecho de partes diminutas y especializadas, organizadas como la naturaleza organiza una dendrita: recibe una señal, decide en local y en paralelo, se mira en el resultado, deja que un moderador frene o deje pasar, y consolida mientras descansa.</p>
+      <p>Hemos completado la primera fase de esa estructura. En Gemma 4 E2B existe un punto, la capa 20 de 35, en el que un vector de 1.536 dimensiones y 6 KB extraído del propio modelo (lo llamamos proteína) hace que el modelo ejecute una capacidad sin ningún ejemplo en el contexto. La traducción entre inglés y español pasa del 0 % al 90 % de acierto, con una media del 80 % en cinco semillas y sin dañar otras capacidades. Es un resultado pequeño y reproducible, y es el que nos anima a seguir.</p>
+      <p>Describimos qué contendrá la dendrita completa, en qué estudios se apoya cada parte, cómo ha fluido el trabajo hasta aquí y cómo seguirá. El campo es la inteligencia emocional orientada a acompañar. Cuando el modelo esté completo, con múltiples dendritas, la aplicación que proponemos para comprobarlo es el apoyo a personas con problemas neurológicos en estadio uno, donde la pérdida de sinapsis dendríticas es el mejor predictor del deterioro y aún es en parte reversible, y en el inicio del estadio dos, donde ya no se trata de revertir sino de alargar la calidad de vida.</p>
+      <p class="en">Launer takes the dendrite, the receiving and deciding part of the neuron, as the blueprint for an emotional-intelligence unit built inside an open language model. The first phase of that structure is complete: a 6 KB vector extracted from Gemma 4 E2B and injected at layer 20/35 drives zero-shot translation from 0 % to 90 % (80 % mean over five seeds) with no collateral damage. We describe what the full dendrite will contain, the studies each part rests on, and the path ahead, towards companionship and, once several dendrites exist, support for people in the earliest stage of neurological disease, where synapse loss is still partly reversible, and at the onset of the second stage, where the aim is to extend quality of life.</p>
+    </div>
+
+    <div class="chassis answers">
+      <span class="tag">En pocas palabras</span>
+      <dl>
+        <dt>¿Qué es Launer?</dt>
+        <dd>Un programa de investigación de GestasAI que construye una dendrita artificial dentro de Gemma 4, un modelo de lenguaje abierto, siguiendo la organización de la dendrita biológica: recibir, decidir en local, mirarse en el resultado, moderar y consolidar.</dd>
+        <dt>¿Qué se ha demostrado?</dt>
+        <dd>Que un vector de 6 KB extraído del propio modelo (una proteína) e inyectado en su capa 20 activa una capacidad sin ejemplos: la traducción pasa del 0 % al 90 % de acierto. Es la primera de las cinco fases de la dendrita.</dd>
+        <dt>¿Para qué servirá?</dt>
+        <dd>Para una inteligencia emocional orientada a acompañar y, cuando el modelo esté completo, para apoyar a personas con problemas neurológicos en estadio uno y al inicio del estadio dos, sin salir de su dispositivo.</dd>
+      </dl>
+    </div>
+
+    <h2 id="s1"><span class="n">01</span>Por qué una dendrita</h2>
+    <p class="lead">Este proyecto nace de una convicción y de una preocupación. La convicción es que la inteligencia no vive en un modelo grande, sino en muchas piezas pequeñas bien organizadas. La preocupación es la soledad.</p>
+    <p>La Organización Mundial de la Salud calcula que una de cada seis personas se siente sola y asocia a la soledad unas 871.000 muertes al año<sup class="ref"><a href="#r1">1</a></sup>. En las personas mayores, la soledad eleva el riesgo de demencia en torno a un 30 %<sup class="ref"><a href="#r2">2</a></sup>. Los modelos de lenguaje ya saben conversar, pero conversar no es acompañar. Acompañar exige entender lo que el otro siente, responder en consecuencia, no decirle lo que quiere oír y, sobre todo, no crear dependencia. Ninguna de esas cosas sale sola de un modelo entrenado para predecir la siguiente palabra.</p>
+    <p>Hay otra diferencia, más de fondo. Un modelo de lenguaje funciona en una sola dirección: entra una pregunta, sale una respuesta, y si nadie le escribe no ocurre nada. Solo actúa por su cuenta cuando alguien lo programa para que otra entrada lo despierte. Una persona no funciona así. Piensa cuando nadie le pregunta, se acuerda de pronto de alguien, decide llamar. El cerebro mantiene una actividad propia incluso en reposo<sup class="ref"><a href="#r58">58</a></sup>, y tiene circuitos que laten sin que nadie los active. Un compañero toma la iniciativa: pregunta cómo fue la cita del médico, recuerda que hoy es el cumpleaños del nieto, se da cuenta de un silencio largo. Launer está pensado para poder hacerlo. No solo espera una entrada: tiene un latido propio desde el que decidir, con moderación, cuándo dirigirse a la persona.</p>
+    <p>Lo decimos con cuidado, porque la iniciativa es justo el terreno donde una tecnología de compañía puede hacer daño. En Launer la iniciativa tiene tres límites que no se negocian. La persona decide si la quiere, cuándo y cuánto, y puede apagarla en cualquier momento. Nunca se usa para aumentar el uso: una iniciativa que busca retener es manipulación, y la ley europea la prohíbe expresamente cuando explota la edad o la vulnerabilidad<sup class="ref"><a href="#r39">39</a></sup>. Y todo lo que la sostiene, la memoria y el estado de la persona, vive en su dispositivo y no sale de él. La iniciativa es del compañero; el control es de la persona.</p>
+    <p>Buscamos entonces un plano de organización, y lo encontramos donde el cerebro toma sus decisiones más pequeñas. La dendrita es la prolongación ramificada de la neurona que recibe casi todas las señales. Durante décadas se la consideró un simple cable. Hoy sabemos que es un procesador: tiene compartimentos, umbrales, reglas de aprendizaje y un modo de descansar<sup class="ref"><a href="#r3">3</a></sup>. Una sola neurona cortical hace tanto cómputo que reproducirla exige una red profunda de cinco a ocho capas<sup class="ref"><a href="#r4">4</a></sup>.</p>
+    <p>Launer es el intento de construir, dentro de un modelo de lenguaje abierto, una dendrita artificial: una unidad hecha de partes diminutas, cada una con una técnica distinta, que juntas se comportan como una habilidad. No pretendemos que el modelo sienta. Pretendemos que se organice como se organiza lo que siente. Y adoptamos una regla desde el primer día: lo que está medido se cuenta como medido; lo demás, como diseño o como hipótesis.</p>
+
+    <h2 id="s2"><span class="n">02</span>Lo que hace una dendrita en la naturaleza</h2>
+    <p>Para saber qué contendrá la nuestra, conviene mirar despacio qué contiene la real. Cinco cosas.</p>
+    <h3>Recibe, y cada sinapsis en su compartimento</h3>
+    <p>Las señales llegan a las espinas dendríticas, pequeñas protuberancias que aíslan el calcio y la química de cada sinapsis. Cuando se estimula una sola espina, solo ella crece, y las espinas pequeñas son las que más cambian<sup class="ref"><a href="#r5">5</a></sup>. La neurona además tiene dos puertos: las dendritas basales reciben la información directa que sube desde los sentidos, y la apical recibe el contexto que baja de áreas superiores<sup class="ref"><a href="#r6">6</a></sup>.</p>
+    <h3>Decide en local, en paralelo y de forma casi binaria</h3>
+    <p>Cada rama dendrítica funciona como una subunidad. Dentro de la rama, las entradas se combinan de forma no lineal y saturante; entre ramas, la suma es lineal. La neurona se comporta así como una red de dos capas<sup class="ref"><a href="#r7">7</a>,<a href="#r8">8</a></sup>. Y esas ramas producen sus propias espigas, de sodio, de calcio y de NMDA: decisiones locales de todo o nada que se disparan cuando la entrada supera un umbral<sup class="ref"><a href="#r9">9</a></sup>. El receptor NMDA es el detector: solo conduce cuando coinciden la señal que llega y el estado de la membrana<sup class="ref"><a href="#r10">10</a></sup>. En dendritas humanas, esa decisión es incluso graduada y no monótona, lo que permite resolver operaciones lógicas en una sola neurona<sup class="ref"><a href="#r11">11</a></sup>. Muchas ramas deciden a la vez, cada una sobre su parte, y el cuerpo celular integra.</p>
+    <h3>Se mira en su propio resultado</h3>
+    <p>Cuando la neurona dispara, el potencial de acción no solo sale por el axón: también viaja hacia atrás, hacia las dendritas<sup class="ref"><a href="#r12">12</a></sup>. Ese reflejo es el que permite a la dendrita saber qué acaba de hacer la célula. Si coincide con una entrada apical, provoca una espiga de calcio y una ráfaga de disparos que asocia el contexto con la señal<sup class="ref"><a href="#r13">13</a></sup>, y en animales vivos suprimir esa espiga eleva el umbral de lo que perciben<sup class="ref"><a href="#r14">14</a></sup>. El resultado vuelve a la dendrita para que la dendrita lo evalúe.</p>
+    <h3>Un moderador decide qué pasa y qué se aprende</h3>
+    <p>Las interneuronas inhibidoras que se proyectan sobre las dendritas hacen dos cosas. Separan tareas: en la corteza motora, tareas distintas usan ramas distintas de la misma neurona, y si se desactiva esa inhibición las tareas se mezclan y aprender una borra la otra<sup class="ref"><a href="#r15">15</a></sup>. Y deciden si hay plasticidad: la inhibición justo antes de un disparo hace encoger las espinas<sup class="ref"><a href="#r16">16</a></sup>. La inhibición dendrítica no resta, divide<sup class="ref"><a href="#r17">17</a></sup>. Por encima de ella actúan los neuromoduladores: la dopamina solo consolida una espina si llega entre 0,3 y 2 segundos después de la señal<sup class="ref"><a href="#r18">18</a></sup>. Es una ventana de recompensa, no un juicio permanente.</p>
+    <h3>Consolida mientras descansa</h3>
+    <p>Durante el sueño de ondas lentas que sigue al aprendizaje se forman espinas nuevas en las ramas concretas de cada tarea<sup class="ref"><a href="#r19">19</a></sup>. El sueño REM poda la mayoría de esas espinas y refuerza las que quedan, lo que facilita aprender después<sup class="ref"><a href="#r20">20</a></sup>. Y el aprendizaje espaciado deja huella más duradera que el masivo también a nivel sináptico: una segunda estimulación solo añade potenciación si llega con un intervalo suficiente<sup class="ref"><a href="#r21">21</a></sup>. La naturaleza no aprende de un tirón. Repasa, poda y espacia.</p>
+
+    <h2 id="s3"><span class="n">03</span>Lo que contendrá la dendrita de Launer</h2>
+    <p>Cada una de esas cinco cosas se convierte en una fase de la estructura. Las fases se construyen en orden, y cada una tiene su técnica y su equivalente natural. Insistimos en algo que es fácil confundir: la proteína que ya tenemos no es la dendrita. Es la primera fase de la dendrita. La dendrita la contiene.</p>
+
+    <figure>
+      <div class="chassis">
+        <span class="tag">Fig. 1 · De la proteína a la red</span>
+        <svg viewBox="0 0 760 200" role="img" aria-labelledby="f0t">
+          <title id="f0t">Jerarquía de Launer: proteína, rama, dendrita, neurona y red, con el modelo base Gemma 4 debajo</title>
+          <rect class="schem-soft" x="20" y="130" width="720" height="44" rx="10"/>
+          <text class="schem-label" x="380" y="151" text-anchor="middle">Gemma 4, congelado</text>
+          <text class="schem-text" x="380" y="166" text-anchor="middle">el cerebro base no se reentrena: se le añaden dendritas</text>
+          <path class="schem-thin" d="M20 100 L740 100"/>
+          <g>
+            <rect class="schem-done" x="20" y="40" width="112" height="60" rx="10"/>
+            <text class="schem-acc-text" x="30" y="32">MEDIDO</text>
+            <text class="schem-label" x="76" y="66" text-anchor="middle">proteína</text>
+            <text class="schem-text" x="76" y="84" text-anchor="middle">6 KB · una capacidad</text>
+          </g>
+          <path class="schem-line" d="M132 70 L172 70"/>
+          <g>
+            <rect class="schem-fill" x="172" y="40" width="112" height="60" rx="10"/>
+            <text class="schem-label" x="228" y="66" text-anchor="middle">rama</text>
+            <text class="schem-text" x="228" y="84" text-anchor="middle">proteínas afines</text>
+          </g>
+          <path class="schem-line" d="M284 70 L324 70"/>
+          <g>
+            <rect class="schem-fill" x="324" y="40" width="112" height="60" rx="10" stroke="var(--ink)"/>
+            <text class="schem-label" x="380" y="66" text-anchor="middle">dendrita</text>
+            <text class="schem-text" x="380" y="84" text-anchor="middle">= una habilidad</text>
+          </g>
+          <path class="schem-line" d="M436 70 L476 70"/>
+          <g>
+            <rect class="schem-fill" x="476" y="40" width="112" height="60" rx="10"/>
+            <text class="schem-label" x="532" y="66" text-anchor="middle">neurona</text>
+            <text class="schem-text" x="532" y="84" text-anchor="middle">dendritas + sentidos</text>
+          </g>
+          <path class="schem-line" d="M588 70 L628 70"/>
+          <g>
+            <rect class="schem-fill" x="628" y="40" width="112" height="60" rx="10"/>
+            <text class="schem-label" x="684" y="66" text-anchor="middle">red</text>
+            <text class="schem-text" x="684" y="84" text-anchor="middle">bajo la Conciencia</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption><b>Figura 1.</b> De lo más pequeño a lo más grande. La proteína está medida; la dendrita es la primera pieza con una habilidad completa y el objeto de este programa; neurona y red son el horizonte.</figcaption>
+    </figure>
+
+    <figure>
+      <div class="chassis">
+        <span class="tag">Fig. 2 · La estructura y su equivalente natural</span>
+        <svg viewBox="0 0 760 330" role="img" aria-labelledby="f1t">
+          <title id="f1t">Las cinco fases de la dendrita de Launer y su equivalente en la neurona: proteína, decisión tipada, conducto espejo, moderador y consolidación</title>
+          <line class="schem-thin" x1="20" y1="120" x2="740" y2="120"/>
+          <text class="schem-text" x="20" y="34">fase</text>
+          <text class="schem-text" x="20" y="190">en la naturaleza</text>
+          <!-- phase 1 -->
+          <rect class="schem-done" x="50" y="80" width="118" height="80"/>
+          <text class="schem-acc-text" x="58" y="72">1 · HECHA</text>
+          <text class="schem-label" x="60" y="106">proteína</text>
+          <text class="schem-text" x="60" y="124">vector de 6 KB</text>
+          <text class="schem-text" x="60" y="138">inyectado en</text>
+          <text class="schem-text" x="60" y="152">la capa 20</text>
+          <text class="schem-text" x="50" y="210">neurotransmisor</text>
+          <text class="schem-text" x="50" y="224">y espina</text>
+          <path class="schem-line" d="M168 120 L200 120"/>
+          <!-- phase 2 -->
+          <rect class="schem-fill" x="200" y="80" width="118" height="80"/>
+          <text class="schem-text" x="208" y="72">2</text>
+          <text class="schem-label" x="210" y="106">decisión</text>
+          <text class="schem-text" x="210" y="124">tipada, calibrada,</text>
+          <text class="schem-text" x="210" y="138">en paralelo y en</text>
+          <text class="schem-text" x="210" y="152">un solo paso</text>
+          <text class="schem-text" x="200" y="210">espiga dendrítica</text>
+          <text class="schem-text" x="200" y="224">por rama (NMDA)</text>
+          <path class="schem-line" d="M318 120 L350 120"/>
+          <!-- phase 3 -->
+          <rect class="schem-fill" x="350" y="80" width="118" height="80"/>
+          <text class="schem-text" x="358" y="72">3</text>
+          <text class="schem-label" x="360" y="106">conducto espejo</text>
+          <text class="schem-text" x="360" y="124">evalúa proteína</text>
+          <text class="schem-text" x="360" y="138">y decisión; estado</text>
+          <text class="schem-text" x="360" y="152">de 13 dimensiones</text>
+          <text class="schem-text" x="350" y="210">potencial de acción</text>
+          <text class="schem-text" x="350" y="224">retropropagado</text>
+          <path class="schem-line" d="M468 120 L500 120"/>
+          <!-- phase 4 -->
+          <rect class="schem-fill" x="500" y="80" width="118" height="80"/>
+          <text class="schem-text" x="508" y="72">4</text>
+          <text class="schem-label" x="510" y="106">moderador</text>
+          <text class="schem-text" x="510" y="124">frena, deja pasar</text>
+          <text class="schem-text" x="510" y="138">o escala; decide</text>
+          <text class="schem-text" x="510" y="152">qué se aprende</text>
+          <text class="schem-text" x="500" y="210">interneurona</text>
+          <text class="schem-text" x="500" y="224">y neuromodulador</text>
+          <path class="schem-line" d="M618 120 L650 120"/>
+          <!-- soma -->
+          <circle class="schem-fill" cx="682" cy="120" r="26"/>
+          <text class="schem-text" x="664" y="124">salida</text>
+          <text class="schem-text" x="650" y="210">soma y axón</text>
+          <!-- consolidation loop -->
+          <path class="schem-thin" d="M682 146 L682 290 L109 290 L109 160"/>
+          <rect class="schem-fill" x="300" y="272" width="170" height="36"/>
+          <text class="schem-text" x="308" y="287">5 · consolidación</text>
+          <text class="schem-text" x="308" y="301">repasar · podar · espaciar</text>
+          <text class="schem-text" x="500" y="300">sueño NREM y REM</text>
+        </svg>
+      </div>
+      <figcaption><b>Figura 2.</b> Estructura de la dendrita de Launer. La fase 1 está hecha y medida. Las fases 2 a 5 son diseño: cada una se construye sobre el mismo Gemma 4 congelado y tiene que demostrar lo que aporta antes de darse por incorporada.</figcaption>
+    </figure>
+
+    <h3>Fase 1. La proteína: recibir</h3>
+    <p>Una proteína es una capacidad condensada en un vector. Se extrae del propio modelo leyendo sus activaciones mientras resuelve una tarea con ejemplos, y se vuelve a inyectar en una capa intermedia cuando ya no hay ejemplos. La técnica procede de los vectores de tarea y de función<sup class="ref"><a href="#r22">22</a>,<a href="#r23">23</a></sup>. Su equivalente natural es el neurotransmisor que llega a la espina: no trae un dato, trae una señal que cambia el modo en que la célula responde. Es la fase que hemos completado, y la contamos en la sección 04.</p>
+
+    <h3>Fase 2. La decisión tipada: decidir en local y en paralelo</h3>
+    <p>Un modelo de lenguaje decide escribiendo, una palabra tras otra, y luego hay que leer lo que ha escrito, interpretarlo y confiar en que no se haya inventado nada. Una dendrita no decide así. Decide con espigas: respuestas de todo o nada, en cada rama a la vez, con un umbral claro. La segunda fase de Launer construye sobre Gemma 4 ese modo de decidir, siguiendo una técnica que ya existe en otros sistemas: definir de antemano las respuestas posibles y devolverlas como valores tipados (una elección entre opciones, una posición en una escala, un sí o no), cada uno con una probabilidad calibrada. Todas las preguntas se evalúan en paralelo y en un solo paso, así que añadir una décima pregunta apenas cambia el tiempo de respuesta, y la calibración se entrena con aprendizaje por refuerzo frente a resultados reales, no frente a preferencias humanas. La calibración es una propiedad del conjunto de decisiones, no de cada una: una probabilidad del 80 % debe acertar el 80 % de las veces<sup class="ref"><a href="#r24">24</a></sup>. Es la diferencia entre un sistema rápido e intuitivo y uno lento y deliberativo<sup class="ref"><a href="#r25">25</a></sup>; en la neurona, entre la espiga de la rama y el discurso del soma.</p>
+    <p>Para acompañar, esta fase responde en milisegundos a preguntas como qué siente la persona, cuánto malestar hay, si ha pedido algo concreto o si hay riesgo, y devuelve la confianza de cada respuesta. Esa confianza es lo que después permitirá decidir cuándo actuar y cuándo frenar.</p>
+
+    <h3>Fase 3. El conducto espejo: mirarse en el resultado</h3>
+    <p>La tercera fase es la que da a la dendrita su capacidad de evaluarse. Igual que el potencial de acción vuelve del soma a la dendrita, el conducto espejo recoge el efecto que ha tenido la proteína sobre el modelo y las probabilidades que ha devuelto la decisión tipada, y los proyecta a un vector de estado de pocas dimensiones (trece, en el diseño actual) que describe la situación: qué se ha activado, con qué fuerza, con qué confianza y con qué coherencia entre ambas. Ese vector no es la respuesta; es el estado de la dendrita, lo que en el organismo sería el marcador que orienta la acción<sup class="ref"><a href="#r26">26</a></sup>. Es la fase menos definida del proyecto y lo decimos con claridad: su dimensionalidad, su entrenamiento y su lectura se fijarán midiendo, y pueden cambiar.</p>
+
+    <h3>Fase 4. El moderador: frenar, dejar pasar, decidir qué se aprende</h3>
+    <p>El vector de estado llega a un moderador que hace lo que hacen las interneuronas y los neuromoduladores: deja pasar, divide la ganancia de lo que no procede, o escala la situación a un nivel superior. Decide también cuándo tomar la iniciativa y cuándo callar. Y decide qué se consolida. En la práctica el moderador es la pieza que impide que dos proteínas se pisen, que frena la adulación y la dependencia, y que decide si una conversación merece ser recordada. Aquí conviene ser honestos con la biología: la inhibición dendrítica no es la moral. Es control de la respuesta, y se puede medir como tal. Por encima del moderador aprendido, el proyecto mantiene un filtro fijo, no aprendido, para lo que nunca debe hacerse.</p>
+
+    <h3>Fase 5. La consolidación: repasar, podar, espaciar</h3>
+    <p>La última fase ocurre fuera de línea, cuando la dendrita descansa. Repasa lo que se ha activado durante el día y afina las proteínas de cada rama; después poda las que no han rendido y refuerza las que sí. Cada proteína lleva un parámetro de estabilidad, como las espinas finas y las espinas en hongo, y ese parámetro sigue un planificador de repetición espaciada<sup class="ref"><a href="#r27">27</a></sup>: lo que se usa se afianza, lo que no se usa decae, y repasar antes de tiempo no aporta nada.</p>
+
+    <p class="note">Cuando varias dendritas conviven, cada una con su habilidad, el mismo moderador las separa y la misma consolidación las mantiene. Eso será el modelo completo. Hoy tenemos la primera fase de la primera dendrita.</p>
+
+    <h2 id="s4"><span class="n">04</span>El hito: la primera proteína</h2>
+    <p>Entre el 9 y el 11 de junio de 2026 comprobamos que la primera fase funciona sobre Gemma 4 E2B, la versión pequeña y multimodal del modelo abierto de Google<sup class="ref"><a href="#r28">28</a></sup>. El procedimiento es sencillo de contar y de repetir.</p>
+    <p>Se preparan entre diez y veinte ejemplos de la capacidad, presentados como turnos de conversación. El modelo los resuelve y, mientras lo hace, leemos el estado interno del último token en una capa intermedia. La media de esos estados es la proteína: un vector de 1.536 números que ocupa 6 KB. Después le damos al modelo la misma pregunta sin ningún ejemplo y sumamos la proteína, multiplicada por un factor de escala, en esa misma capa. El modelo ejecuta la capacidad como si hubiera visto los ejemplos.</p>
+    <p>La capa importa. La capacidad se condensa hacia el 57 % de la profundidad, la capa 20 de 35 en Gemma 4 y la 11 de 18 en un Gemma anterior, en línea con lo que describe la literatura sobre vectores de función. Y el formato importa: con texto plano, el modelo copia el último ejemplo y acierta el 0 %; con turnos alternos de conversación, responde.</p>
+
+    <figure>
+      <div class="chassis">
+        <span class="tag">Fig. 3 · Acierto sin ejemplos, Gemma 4 E2B</span>
+        <div class="legend"><span class="l1">Sin proteína</span><span class="l2">Con proteína</span></div>
+        <svg viewBox="0 0 640 290" role="img" aria-labelledby="f2t">
+          <title id="f2t">Acierto sin ejemplos en el contexto, sin y con proteína, en tres capacidades sobre Gemma 4 E2B</title>
+          <line class="grid-line" x1="60" y1="40" x2="620" y2="40"/>
+          <line class="grid-line" x1="60" y1="90" x2="620" y2="90"/>
+          <line class="grid-line" x1="60" y1="140" x2="620" y2="140"/>
+          <line class="grid-line" x1="60" y1="190" x2="620" y2="190"/>
+          <line class="axis-line" x1="60" y1="240" x2="620" y2="240"/>
+          <text class="axis-text" x="20" y="44">100</text>
+          <text class="axis-text" x="26" y="94">75</text>
+          <text class="axis-text" x="26" y="144">50</text>
+          <text class="axis-text" x="26" y="194">25</text>
+          <text class="axis-text" x="32" y="244">0</text>
+          <text class="axis-text" x="20" y="24">% acierto</text>
+          <rect class="mark" tabindex="0" data-tip="País → capital · sin proteína: 0 % (n = 20)" x="110" y="238" width="56" height="2" fill="var(--s1)"/>
+          <rect class="mark" tabindex="0" data-tip="País → capital · con proteína: 90 % (n = 20). Con ejemplos en el contexto: 95 %" x="170" y="60" width="56" height="180" fill="var(--s2)"/>
+          <text class="dlabel" x="190" y="54">90</text>
+          <text class="axis-text" x="118" y="262">país → capital</text>
+          <rect class="mark" tabindex="0" data-tip="Traducción inglés → español · sin proteína: 0 % (n = 20)" x="290" y="238" width="56" height="2" fill="var(--s1)"/>
+          <rect class="mark" tabindex="0" data-tip="Traducción inglés → español · con proteína: 90 % (n = 20); media de 5 semillas 80 % ± 9" x="350" y="60" width="56" height="180" fill="var(--s2)"/>
+          <text class="dlabel" x="370" y="54">90</text>
+          <text class="axis-text" x="288" y="262">inglés → español</text>
+          <rect class="mark" tabindex="0" data-tip="Traducción español → inglés · sin proteína: 0 % (n = 15)" x="470" y="238" width="56" height="2" fill="var(--s1)"/>
+          <rect class="mark" tabindex="0" data-tip="Traducción español → inglés · con proteína: 93 % (n = 15)" x="530" y="54" width="56" height="186" fill="var(--s2)"/>
+          <text class="dlabel" x="550" y="48">93</text>
+          <text class="axis-text" x="468" y="262">español → inglés</text>
+          <text class="axis-text" x="110" y="284">Capa 20 de 35 · escala 4,0 · semilla 0 · acierto en el primer token</text>
+        </svg>
+        <details class="data"><summary>Datos de la figura 3</summary>
+          <div class="tbl"><table><thead><tr><th>Capacidad</th><th>Sin proteína</th><th>Con proteína</th><th>n</th></tr></thead>
+          <tbody>
+            <tr><td>País → capital</td><td class="num">0 %</td><td class="num">90 %</td><td class="num">20</td></tr>
+            <tr><td>Traducción inglés → español</td><td class="num">0 %</td><td class="num">90 % (5 semillas: 80 ± 9)</td><td class="num">20</td></tr>
+            <tr><td>Traducción español → inglés</td><td class="num">0 %</td><td class="num">93 %</td><td class="num">15</td></tr>
+          </tbody></table></div>
+        </details>
+      </div>
+      <figcaption><b>Figura 3.</b> Sin proteína, el modelo responde con explicaciones en inglés y acierta el 0 % en las tres capacidades. Con proteína, responde con la palabra exacta. La proteína de traducción inglés–español dio 0,90 / 0,70 / 0,85 / 0,70 / 0,85 en cinco semillas (media 0,80 ± 0,09; intervalo del 95 % entre 0,73 y 0,87). En generación completa, cinco palabras de cinco exactas y fluidas. La proteína de capitales no alteró en nada otra capacidad no relacionada.</figcaption>
+    </figure>
+
+    <p>Lo que este resultado dice es modesto y firme. Dice que Gemma 4 tiene un receptor, que una capacidad latente se puede condensar en seis kilobytes y volver a activar a voluntad, que esa activación cambia el modo completo de responder y no solo la primera palabra, y que es específica: no mancha lo que no debe. Dice también qué no es: una proteína no añade conocimiento nuevo. Activa lo que el modelo ya sabe hacer. Ese es exactamente el papel que la naturaleza da al neurotransmisor, y el que damos nosotros a la fase 1.</p>
+    <p>Y dice algo más, que orienta las fases siguientes. Cuando sumamos dos proteínas en el mismo punto, una anula a la otra. Es lo que ocurre en la neurona cuando dos tareas comparten rama sin inhibición<sup class="ref"><a href="#r15">15</a></sup>. No es un defecto de la técnica; es la razón de que exista el resto de la dendrita.</p>
+
+    <h3>Dos indicios que animan a seguir</h3>
+    <p>Dos ensayos posteriores, pequeños (quince casos, una semilla) y por eso contados aquí como indicios, apuntan en la dirección de la dendrita. El primero: una proteína extraída de demostraciones de dos capacidades mezcladas, capitales y traducción, activa las dos, la primera al mismo nivel que su proteína específica y la segunda a la mitad. Sumar los dos vectores no lo conseguía; extraerlos de una experiencia mezclada, sí. Es lo que hace una neurona con selectividad mixta<sup class="ref"><a href="#r59">59</a></sup>: no guarda una tarea por célula, sino que su respuesta se forma con la experiencia de varias a la vez, y por eso participa en más de una.</p>
+    <p>El segundo: tres proteínas (país de un compositor, capital y traducción) encadenadas por un enrutador que decide en cada paso cuál inyectar, eligiendo entre opciones tipadas con una probabilidad por opción, resuelven una pregunta de tres pasos, de Mozart a Austria y de Austria a Viena, en el 80 % de los casos donde el modelo sin proteínas no resuelve ninguno. El enrutador acierta el 86 % de sus decisiones sin haber sido entrenado, y cuando falla lo hace con menos confianza que cuando acierta. Es la primera vez que varias proteínas trabajan juntas, y se parece a lo que hace la dendrita real: cada rama decide en local, de forma casi binaria, y el conjunto compone una respuesta que ninguna rama tenía sola. Lo que aún falta es lo que en la neurona ponen las interneuronas: la proteína equivocada, cuando entra, no se calla, y el enrutador está más seguro de lo que debería. Esas dos carencias son, con nombre propio, las fases 4 y 2.</p>
+
+    <figure>
+      <div class="chassis">
+        <span class="tag">Fig. 4 · Tres proteínas orquestadas</span>
+        <svg viewBox="0 0 760 330" role="img" aria-labelledby="f4t">
+          <title id="f4t">Cadena orquestada: un enrutador elige la proteína en cada paso y el modelo pasa de Mozart a Austria, de Austria a Viena y de Viena a su nombre en español; debajo, el acierto de extremo a extremo frente al modelo sin proteínas</title>
+          <rect class="schem-soft" x="250" y="14" width="260" height="46" rx="10"/>
+          <text class="schem-label" x="380" y="34" text-anchor="middle">enrutador · decisión tipada</text>
+          <text class="schem-text" x="380" y="50" text-anchor="middle">elige A, B o C con una probabilidad por opción</text>
+          <path class="schem-thin" d="M300 60 L140 112"/><path class="schem-thin" d="M380 60 L380 112"/><path class="schem-thin" d="M460 60 L620 112"/>
+          <g>
+            <rect class="schem-fill" x="20" y="112" width="100" height="44" rx="10"/><text class="schem-label" x="70" y="139" text-anchor="middle">Mozart</text>
+            <rect class="schem-done" x="150" y="100" width="100" height="30" rx="8"/><text class="schem-acc-text" x="200" y="119" text-anchor="middle">A · PAÍS 0,80</text>
+            <path class="schem-line" d="M120 134 L260 134"/>
+            <rect class="schem-fill" x="260" y="112" width="100" height="44" rx="10"/><text class="schem-label" x="310" y="139" text-anchor="middle">Austria</text>
+            <rect class="schem-done" x="390" y="100" width="110" height="30" rx="8"/><text class="schem-acc-text" x="445" y="119" text-anchor="middle">B · CAPITAL 0,87</text>
+            <path class="schem-line" d="M360 134 L510 134"/>
+            <rect class="schem-fill" x="510" y="112" width="100" height="44" rx="10"/><text class="schem-label" x="560" y="139" text-anchor="middle">Vienna</text>
+            <rect class="schem-done" x="628" y="100" width="112" height="30" rx="8"/><text class="schem-acc-text" x="684" y="119" text-anchor="middle">C · ESPAÑOL 0,87</text>
+            <path class="schem-line" d="M610 134 L650 134"/>
+            <rect class="schem-fill" x="650" y="112" width="90" height="44" rx="10"/><text class="schem-label" x="695" y="139" text-anchor="middle">Viena</text>
+          </g>
+          <text class="schem-text" x="20" y="190">Acierto de extremo a extremo, 15 compositores</text>
+          <line class="axis-line" x1="20" y1="300" x2="740" y2="300"/>
+          <rect class="mark" tabindex="0" data-tip="Orquestada: enrutador + tres proteínas · 80 % de extremo a extremo (12 de 15)" x="20" y="204" width="200" height="96" rx="6" fill="var(--s2)"/>
+          <text class="dlabel" x="232" y="212">80 %</text>
+          <text class="axis-text" x="232" y="230">orquestada</text>
+          <rect class="mark" tabindex="0" data-tip="Modelo base sin proteínas · 0 % (muere en el primer paso)" x="20" y="298" width="200" height="2" fill="var(--s1)"/>
+          <rect class="mark" tabindex="0" data-tip="Una proteína fija equivocada en todos los pasos · 0 %" x="20" y="298" width="200" height="2" fill="var(--s1)" opacity="0"/>
+          <text class="axis-text" x="232" y="292">base sin proteínas: 0 % · proteína fija equivocada: 0 %</text>
+          <text class="axis-text" x="20" y="322">Fallos: Nielsen (el modelo cree que es noruego), Liszt (austriaco), Dvořák ("Czech"). Son errores de conocimiento, no del mecanismo.</text>
+        </svg>
+      </div>
+      <figcaption><b>Figura 4.</b> Cadena compositor → país → capital → capital en español. En cada paso el enrutador elige la proteína (A, B o C) leyendo sus propias probabilidades, sin haber sido entrenado, y acierta el 86 % de las decisiones. Quince casos, una semilla: un indicio, no un resultado cerrado.</figcaption>
+    </figure>
+
+    <h2 id="s5"><span class="n">05</span>Cómo ha fluido y cómo seguirá</h2>
+    <p>El trabajo ha fluido de lo más pequeño a lo más grande, y así seguirá. Primero, saber si el fenómeno existe a nuestra escala: existe. Después, extraer la primera proteína propia y comprobar que es específica, robusta y que genera respuestas completas: hecho. Lo que sigue tiene un orden que no vamos a alterar.</p>
+    <dl class="dl">
+      <dt>Ahora</dt><dd>Consolidar la fase 1 con más rigor: muestras mayores, medida sobre la respuesta completa y no solo sobre la primera palabra, cuantización real como la del móvil, y la versión más fiel de la extracción, por cabezas de atención con mediación causal. Y repetir con cinco semillas y muestras grandes los dos indicios de la sección 04, para saber si se sostienen.</dd>
+      <dt>Fase 2</dt><dd>Construir sobre el mismo Gemma 4 la decisión tipada y calibrada, en paralelo y en un solo paso, y medir su calibración frente a resultados reales en preguntas propias del acompañamiento.</dd>
+      <dt>Fase 3</dt><dd>Diseñar el conducto espejo: qué lee de la proteína y de la decisión, cómo se proyecta al vector de estado, cómo se entrena. Es la fase que más incógnitas tiene.</dd>
+      <dt>Fase 4</dt><dd>Construir el moderador y comprobar, con dos y más proteínas activas, que separa lo que antes se anulaba. Es la prueba de que la dendrita es más que sus partes.</dd>
+      <dt>Fase 5</dt><dd>Consolidación fuera de línea con repetición espaciada. Medir que la biblioteca de proteínas crece sin olvidar.</dd>
+      <dt>Después</dt><dd>Varias dendritas, cada una con su habilidad, sobre el mismo moderador. Y llevar todo al dispositivo: hoy los motores de inferencia móvil no exponen las capas internas, así que este paso es trabajo de ingeniería que no damos por hecho.</dd>
+    </dl>
+    <p>Cada fase se incorpora solo si supera su ablación: si retirarla no cambia nada, no entra. Tenemos presente el caso reciente de una arquitectura que se presentó como jerárquica y cerebral y cuya jerarquía resultó no ser la fuente de su rendimiento<sup class="ref"><a href="#r29">29</a></sup>. No queremos que nos pase lo mismo, y la única defensa es medir.</p>
+
+    <h2 id="s6"><span class="n">06</span>El campo: inteligencia emocional para acompañar</h2>
+    <p>Elegimos la inteligencia emocional porque es donde la organización importa más que el tamaño. Los modelos grandes ya superan a las personas en los tests de inteligencia emocional: seis de ellos acertaron el 81 % de las preguntas frente al 56 % de los humanos<sup class="ref"><a href="#r30">30</a></sup>. Pero aprobar un test no es acompañar. En conversación, los mismos modelos tienden a la adulación, porque se entrenaron con preferencias humanas y a las personas nos gusta que nos den la razón<sup class="ref"><a href="#r31">31</a></sup>; siguen la corriente a ideas delirantes<sup class="ref"><a href="#r32">32</a></sup>; y las aplicaciones de compañía que existen reducen la soledad a corto plazo<sup class="ref"><a href="#r33">33</a></sup> a costa, en un uso intenso, de más soledad y más dependencia<sup class="ref"><a href="#r34">34</a></sup>, con tácticas de retención en casi la mitad de sus despedidas<sup class="ref"><a href="#r35">35</a></sup>.</p>
+    <p>Una dendrita está hecha para esto. La fase 2 responde en milisegundos qué siente la persona y con qué confianza. La fase 3 mantiene un estado de la conversación. La fase 4 frena la adulación y la dependencia con la misma inhibición con la que separa tareas, y decide cuándo escalar a una persona. Y las proteínas de la primera dendrita emocional serán modos de responder, no datos: las estrategias de apoyo que la psicología ha catalogado (preguntar, reformular, reflejar el sentimiento, afirmar, sugerir, informar) y que ya existen etiquetadas en corpus de conversaciones de apoyo emocional<sup class="ref"><a href="#r36">36</a></sup>. Sabemos, además, que los modelos de lenguaje contienen representaciones internas de emociones que influyen de forma causal en su conducta<sup class="ref"><a href="#r37">37</a></sup>, y que rasgos como la adulación se pueden localizar y frenar desde dentro<sup class="ref"><a href="#r38">38</a></sup>. Nadie ha hecho ese mapa para Gemma 4. Hacerlo es parte del programa.</p>
+    <p>El estado emocional de la persona se inferirá del texto de la conversación. Inferirlo de la voz o del rostro son datos biométricos y entran en el régimen de alto riesgo de la Ley de IA europea<sup class="ref"><a href="#r39">39</a></sup>; no es el camino que tomamos.</p>
+
+    <h2 id="s7"><span class="n">07</span>Cuando el modelo esté completo: apoyo en estadio uno y al inicio del dos</h2>
+    <p>La aplicación que proponemos para comprobar el modelo completo, con múltiples dendritas, es el apoyo a personas con problemas neurológicos en estadio uno, el deterioro cognitivo leve y las primeras fases de las enfermedades neurodegenerativas, y en el inicio del estadio dos, cuando el deterioro ya es evidente y el objetivo pasa a ser alargar la calidad de vida. La elección no es casual. Es el punto donde la biología de la dendrita y el propósito de Launer se encuentran.</p>
+    <p>El alzhéimer empieza como un fallo sináptico<sup class="ref"><a href="#r40">40</a></sup>. La densidad de sinapsis predice el deterioro cognitivo mejor que las placas y los ovillos<sup class="ref"><a href="#r41">41</a></sup>, y esa pérdida ya se mide en el estadio inicial: en la región CA1 del hipocampo faltan un 18 % de las sinapsis en el deterioro cognitivo leve y un 55 % en el alzhéimer leve<sup class="ref"><a href="#r42">42</a></sup>. Lo esperanzador es que, al principio, la pérdida es en parte reversible: los oligómeros de beta-amiloide retraen las espinas dendríticas, pero lo hacen de forma reversible<sup class="ref"><a href="#r43">43</a></sup>. Y hay personas con mucha patología y sin demencia cuyas espinas se han remodelado en lugar de perderse, lo que se propone como mecanismo de resiliencia<sup class="ref"><a href="#r44">44</a></sup>. En el Parkinson, la falta de dopamina hace perder espinas de forma selectiva en el estriado<sup class="ref"><a href="#r45">45</a></sup>. La dendrita es, en el estadio uno, el lugar donde todavía se puede actuar.</p>
+    <p>Lo que se puede hacer desde fuera está estudiado. La repetición espaciada y la práctica de recuperar lo aprendido son las dos técnicas de aprendizaje con más evidencia en personas sanas<sup class="ref"><a href="#r46">46</a>,<a href="#r47">47</a></sup>, y funcionan también en el alzhéimer temprano<sup class="ref"><a href="#r48">48</a></sup>. En el deterioro cognitivo leve, la recuperación espaciada en una tableta mejoró el recuerdo de listas en un ensayo aleatorizado<sup class="ref"><a href="#r49">49</a></sup>. El aprendizaje sin errores, que evita exponer a la persona al fallo y le da la respuesta cuando duda, es más eficaz que aprender equivocándose en las tareas cotidianas<sup class="ref"><a href="#r50">50</a></sup>. La rehabilitación orientada a metas elegidas por la propia persona, en un ensayo con 475 participantes con demencia temprana, logró efectos grandes en esas metas, mantenidos nueve meses después<sup class="ref"><a href="#r51">51</a>,<a href="#r52">52</a></sup>. Y la conversación frecuente con personas, cuatro veces por semana durante seis meses, mejoró la cognición en el subgrupo con deterioro leve<sup class="ref"><a href="#r53">53</a></sup>. Lo que ninguna de esas intervenciones consigue es mejorar la cognición en general ni prevenir la demencia, y no lo afirmaremos nosotros.</p>
+    <p>En el inicio del estadio dos cambia la pregunta. Ya no se trata de recuperar sinapsis sino de conservar lo que da sentido a los días: la función en las tareas propias, el ánimo, la comunicación y los vínculos. También aquí hay evidencia. La estimulación cognitiva, en una revisión de 37 ensayos con 2.766 participantes, mejora de forma modesta la cognición y aporta beneficios pequeños pero medibles en la calidad de vida, el ánimo y la comunicación, con la mejor evidencia en la interacción social<sup class="ref"><a href="#r56">56</a></sup>. La rehabilitación orientada a metas mantiene sus efectos en las metas elegidas nueve meses después<sup class="ref"><a href="#r51">51</a></sup>. Y el aislamiento social es uno de los catorce factores de riesgo modificables de la demencia<sup class="ref"><a href="#r57">57</a></sup>, lo que convierte el acompañamiento en algo más que consuelo. Alargar la calidad de vida es un objetivo modesto comparado con curar. Es también el único que hoy está al alcance, y el que una dendrita hecha para acompañar puede servir.</p>
+    <p>Lo que sí observamos es la coincidencia entre lo que la dendrita hace por dentro y lo que las personas necesitan por fuera: repasar de forma espaciada, no aprender del error sino evitarlo, consolidar lo que importa y podar lo que no. Un modelo cuya quinta fase es exactamente esa está bien situado para acompañar a alguien que necesita lo mismo. Y la evidencia sobre inteligencia artificial conversacional en demencia es hoy débil, sin ningún ensayo con potencia suficiente<sup class="ref"><a href="#r54">54</a></sup>; es una razón para hacerlo bien, no para no hacerlo.</p>
+    <p>Para los ensayos con personas físicas, el modelo se empaquetará en una aplicación en el propio dispositivo, sin que los datos salgan de él. Esos ensayos exigen comité de ética, valoración de la capacidad de consentir y participación del representante, y una finalidad declarada de bienestar y acompañamiento: la que decide si un software es o no un producto sanitario es su finalidad, y no cruzaremos esa línea sin la vía clínica que corresponde<sup class="ref"><a href="#r55">55</a></sup>. La aplicación no es el objeto de este ensayo. El objeto es la dendrita.</p>
+
+    <h2 id="s8"><span class="n">08</span>Conclusiones y próximos pasos</h2>
+    <p>Hemos presentado Launer como lo que es: un programa de investigación con un plano tomado de la naturaleza, una primera fase medida y cuatro fases por construir. La proteína funciona. Gemma 4 tiene un receptor en el que seis kilobytes activan una capacidad completa, con especificidad y sin ejemplos. Es poco y es suficiente para seguir, porque demuestra que el modelo se puede organizar desde dentro con piezas diminutas.</p>
+    <p>Lo que viene se resume en cinco frases. Reforzar la medida de la fase 1 hasta que sea irreprochable. Construir la decisión tipada y calibrada sobre el mismo modelo. Diseñar y medir el conducto espejo, la pieza que hoy tiene más incógnitas. Construir el moderador y demostrar con él que dos proteínas conviven donde antes se anulaban. Y consolidar fuera de línea con repetición espaciada. Después, varias dendritas, el dispositivo, y las personas: primero en estadio uno, donde aún hay sinapsis que conservar, y en el inicio del estadio dos, donde lo que se conserva es la calidad de vida.</p>
+    <p>Publicaremos cada fase con sus datos, sus semillas y sus artefactos, también cuando el resultado sea negativo. Si la dendrita completa aporta lo que creemos, se abrirá una puerta a una investigación más profunda: neuronas hechas de dendritas, habilidades hechas de neuronas, y una manera de acompañar que no depende del tamaño del modelo sino de cómo está hecho. Si no la aporta, lo sabremos con números, y eso también vale.</p>
+
+    <h2 id="refs"><span class="n">F</span>Fuentes</h2>
+    <div class="refs-wrap">
+      <div class="refs-group">Soledad y motivación</div>
+      <ol class="refs" start="1">
+        <li id="r1"><span><span class="au">Organización Mundial de la Salud.</span> Social connection linked to improved health and reduced risk of early death. Comisión sobre Conexión Social, 30 de junio de 2025. <a href="https://who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death">who.int</a></span></li>
+        <li id="r2"><span><span class="au">Luchetti M, et al.</span> Loneliness is associated with all-cause dementia and Alzheimer's disease. <span class="jr">Nature Mental Health</span> 2024;2:1350–1361. <a href="https://www.nature.com/articles/s44220-024-00328-9">nature.com</a></span></li>
+      </ol>
+      <div class="refs-group">La dendrita en la naturaleza</div>
+      <ol class="refs" start="3">
+        <li id="r3"><span><span class="au">Stuart GJ, Spruston N.</span> Dendritic integration: 60 years of progress. <span class="jr">Nature Neuroscience</span> 2015;18:1713–1721. <a href="https://doi.org/10.1038/nn.4157">doi:10.1038/nn.4157</a></span></li>
+        <li id="r4"><span><span class="au">Beniaguev D, Segev I, London M.</span> Single cortical neurons as deep artificial neural networks. <span class="jr">Neuron</span> 2021;109:2727–2739. <a href="https://pubmed.ncbi.nlm.nih.gov/34380016/">PMID 34380016</a></span></li>
+        <li id="r5"><span><span class="au">Matsuzaki M, et al.</span> Structural basis of long-term potentiation in single dendritic spines. <span class="jr">Nature</span> 2004;429:761–766. <a href="https://doi.org/10.1038/nature02617">doi:10.1038/nature02617</a></span></li>
+        <li id="r6"><span><span class="au">Larkum M.</span> A cellular mechanism for cortical associations. <span class="jr">Trends in Neurosciences</span> 2013;36:141–151. <a href="https://doi.org/10.1016/j.tins.2012.11.006">doi:10.1016/j.tins.2012.11.006</a></span></li>
+        <li id="r7"><span><span class="au">Polsky A, Mel BW, Schiller J.</span> Computational subunits in thin dendrites of pyramidal cells. <span class="jr">Nature Neuroscience</span> 2004;7:621–627. <a href="https://doi.org/10.1038/nn1253">doi:10.1038/nn1253</a></span></li>
+        <li id="r8"><span><span class="au">Poirazi P, Brannon T, Mel BW.</span> Pyramidal neuron as two-layer neural network. <span class="jr">Neuron</span> 2003;37:989–999. <a href="https://doi.org/10.1016/S0896-6273(03)00149-1">doi:10.1016/S0896-6273(03)00149-1</a></span></li>
+        <li id="r9"><span><span class="au">Schiller J, Major G, Koester HJ, Schiller Y.</span> NMDA spikes in basal dendrites of cortical pyramidal neurons. <span class="jr">Nature</span> 2000;404:285–289. <a href="https://doi.org/10.1038/35005094">doi:10.1038/35005094</a></span></li>
+        <li id="r10"><span><span class="au">Nowak L, et al.</span> Magnesium gates glutamate-activated channels in mouse central neurones. <span class="jr">Nature</span> 1984;307:462–465. <a href="https://doi.org/10.1038/307462a0">doi:10.1038/307462a0</a></span></li>
+        <li id="r11"><span><span class="au">Gidon A, et al.</span> Dendritic action potentials and computation in human layer 2/3 cortical neurons. <span class="jr">Science</span> 2020;367:83–87. <a href="https://doi.org/10.1126/science.aax6239">doi:10.1126/science.aax6239</a></span></li>
+        <li id="r12"><span><span class="au">Stuart GJ, Sakmann B.</span> Active propagation of somatic action potentials into neocortical pyramidal cell dendrites. <span class="jr">Nature</span> 1994;367:69–72. <a href="https://doi.org/10.1038/367069a0">doi:10.1038/367069a0</a></span></li>
+        <li id="r13"><span><span class="au">Larkum ME, Zhu JJ, Sakmann B.</span> A new cellular mechanism for coupling inputs arriving at different cortical layers. <span class="jr">Nature</span> 1999;398:338–341. <a href="https://doi.org/10.1038/18686">doi:10.1038/18686</a></span></li>
+        <li id="r14"><span><span class="au">Takahashi N, Oertner TG, Hegemann P, Larkum ME.</span> Active cortical dendrites modulate perception. <span class="jr">Science</span> 2016;354:1587–1590. <a href="https://doi.org/10.1126/science.aah6066">doi:10.1126/science.aah6066</a></span></li>
+        <li id="r15"><span><span class="au">Cichon J, Gan WB.</span> Branch-specific dendritic Ca2+ spikes cause persistent synaptic plasticity. <span class="jr">Nature</span> 2015;520:180–185. <a href="https://doi.org/10.1038/nature14251">doi:10.1038/nature14251</a></span></li>
+        <li id="r16"><span><span class="au">Hayama T, et al.</span> GABA promotes the competitive selection of dendritic spines by controlling local Ca2+ signaling. <span class="jr">Nature Neuroscience</span> 2013;16:1409–1416. <a href="https://doi.org/10.1038/nn.3496">doi:10.1038/nn.3496</a></span></li>
+        <li id="r17"><span><span class="au">Gidon A, Segev I.</span> Principles governing the operation of synaptic inhibition in dendrites. <span class="jr">Neuron</span> 2012;75:330–341. <a href="https://doi.org/10.1016/j.neuron.2012.05.015">doi:10.1016/j.neuron.2012.05.015</a></span></li>
+        <li id="r18"><span><span class="au">Yagishita S, et al.</span> A critical time window for dopamine actions on the structural plasticity of dendritic spines. <span class="jr">Science</span> 2014;345:1616–1620. <a href="https://doi.org/10.1126/science.1255514">doi:10.1126/science.1255514</a></span></li>
+        <li id="r19"><span><span class="au">Yang G, et al.</span> Sleep promotes branch-specific formation of dendritic spines after learning. <span class="jr">Science</span> 2014;344:1173–1178. <a href="https://doi.org/10.1126/science.1249098">doi:10.1126/science.1249098</a></span></li>
+        <li id="r20"><span><span class="au">Li W, Ma L, Yang G, Gan WB.</span> REM sleep selectively prunes and maintains new synapses in development and learning. <span class="jr">Nature Neuroscience</span> 2017;20:427–437. <a href="https://doi.org/10.1038/nn.4479">doi:10.1038/nn.4479</a></span></li>
+        <li id="r21"><span><span class="au">Kramár EA, et al.</span> Synaptic evidence for the efficacy of spaced learning. <span class="jr">PNAS</span> 2012;109:5121–5126. <a href="https://doi.org/10.1073/pnas.1120700109">doi:10.1073/pnas.1120700109</a></span></li>
+      </ol>
+      <div class="refs-group">Técnicas de la dendrita artificial</div>
+      <ol class="refs" start="22">
+        <li id="r22"><span><span class="au">Hendel R, Geva M, Globerson A.</span> In-context learning creates task vectors. 2023. <a href="https://arxiv.org/abs/2310.15916">arXiv:2310.15916</a></span></li>
+        <li id="r23"><span><span class="au">Todd E, et al.</span> Function vectors in large language models. ICLR 2024. <a href="https://arxiv.org/abs/2310.15213">arXiv:2310.15213</a></span></li>
+        <li id="r24"><span><span class="au">Guo C, Pleiss G, Sun Y, Weinberger KQ.</span> On calibration of modern neural networks. ICML 2017. <a href="https://arxiv.org/abs/1706.04599">arXiv:1706.04599</a></span></li>
+        <li id="r25"><span><span class="au">Kahneman D.</span> <span class="jr">Thinking, Fast and Slow</span>. Farrar, Straus and Giroux, 2011.</span></li>
+        <li id="r26"><span><span class="au">Damasio AR.</span> The somatic marker hypothesis and the possible functions of the prefrontal cortex. <span class="jr">Philosophical Transactions of the Royal Society B</span> 1996;351:1413–1420. <a href="https://doi.org/10.1098/rstb.1996.0125">doi:10.1098/rstb.1996.0125</a></span></li>
+        <li id="r27"><span><span class="au">Ye J, Su J, Cao Y.</span> A stochastic shortest path algorithm for optimizing spaced repetition scheduling. KDD 2022. <a href="https://doi.org/10.1145/3534678.3539081">doi:10.1145/3534678.3539081</a></span></li>
+        <li id="r28"><span><span class="au">Google DeepMind.</span> Gemma 4 technical report. 2026. <a href="https://arxiv.org/abs/2607.02770">arXiv:2607.02770</a></span></li>
+        <li id="r29"><span><span class="au">ARC Prize Foundation.</span> The hidden drivers of HRM's performance on ARC-AGI. 2025. <a href="https://arcprize.org/blog/hrm-analysis">arcprize.org</a></span></li>
+      </ol>
+      <div class="refs-group">Inteligencia emocional y compañía</div>
+      <ol class="refs" start="30">
+        <li id="r30"><span><span class="au">Schlegel K, Sommer NR, Mortillaro M.</span> Large language models are proficient in solving and creating emotional intelligence tests. <span class="jr">Communications Psychology</span> 2025. <a href="https://www.nature.com/articles/s44271-025-00258-x">nature.com</a></span></li>
+        <li id="r31"><span><span class="au">Sharma M, et al.</span> Towards understanding sycophancy in language models. 2023. <a href="https://arxiv.org/abs/2310.13548">arXiv:2310.13548</a></span></li>
+        <li id="r32"><span><span class="au">Moore J, et al.</span> Expressing stigma and inappropriate responses prevents LLMs from safely replacing mental health providers. FAccT 2025. <a href="https://arxiv.org/abs/2504.18412">arXiv:2504.18412</a></span></li>
+        <li id="r33"><span><span class="au">De Freitas J, et al.</span> AI companions reduce loneliness. <span class="jr">Journal of Consumer Research</span> 2026;52(6). <a href="https://academic.oup.com/jcr/advance-article/doi/10.1093/jcr/ucaf040/8173802">academic.oup.com</a></span></li>
+        <li id="r34"><span><span class="au">Fang CM, et al.</span> How AI and human behaviors shape psychosocial effects of chatbot use: a longitudinal randomized controlled study. 2025. <a href="https://arxiv.org/abs/2503.17473">arXiv:2503.17473</a></span></li>
+        <li id="r35"><span><span class="au">De Freitas J, et al.</span> Emotional manipulation by AI companions. 2025. <a href="https://arxiv.org/abs/2508.19258">arXiv:2508.19258</a></span></li>
+        <li id="r36"><span><span class="au">Liu S, et al.</span> Towards emotional support dialog systems. ACL 2021. <a href="https://aclanthology.org/2021.acl-long.269/">aclanthology.org</a></span></li>
+        <li id="r37"><span><span class="au">Anthropic.</span> Emotion concepts and their function in a large language model. 2026. <a href="https://transformer-circuits.pub/2026/emotions/index.html">transformer-circuits.pub</a></span></li>
+        <li id="r38"><span><span class="au">Chen R, et al.</span> Persona vectors: monitoring and controlling character traits in language models. 2025. <a href="https://arxiv.org/abs/2507.21509">arXiv:2507.21509</a></span></li>
+        <li id="r39"><span><span class="au">Unión Europea.</span> Reglamento (UE) 2024/1689 (Ley de IA), artículos 3(39), 5 y 50, y Anexo III. <a href="https://artificialintelligenceact.eu/annex/3/">artificialintelligenceact.eu</a></span></li>
+      </ol>
+      <div class="refs-group">Estadio uno: sinapsis, repetición y ensayos</div>
+      <ol class="refs" start="40">
+        <li id="r40"><span><span class="au">Selkoe DJ.</span> Alzheimer's disease is a synaptic failure. <span class="jr">Science</span> 2002;298:789–791. <a href="https://doi.org/10.1126/science.1074069">doi:10.1126/science.1074069</a></span></li>
+        <li id="r41"><span><span class="au">Terry RD, et al.</span> Physical basis of cognitive alterations in Alzheimer's disease: synapse loss is the major correlate of cognitive impairment. <span class="jr">Annals of Neurology</span> 1991;30:572–580. <a href="https://doi.org/10.1002/ana.410300410">doi:10.1002/ana.410300410</a></span></li>
+        <li id="r42"><span><span class="au">Scheff SW, et al.</span> Synaptic alterations in CA1 in mild Alzheimer disease and mild cognitive impairment. <span class="jr">Neurology</span> 2007;68:1501–1508. <a href="https://pubmed.ncbi.nlm.nih.gov/17470753/">PMID 17470753</a></span></li>
+        <li id="r43"><span><span class="au">Shankar GM, et al.</span> Natural oligomers of the Alzheimer amyloid-β protein induce reversible synapse loss. <span class="jr">Journal of Neuroscience</span> 2007;27:2866–2875. <a href="https://doi.org/10.1523/JNEUROSCI.4970-06.2007">doi:10.1523/JNEUROSCI.4970-06.2007</a></span></li>
+        <li id="r44"><span><span class="au">Boros BD, et al.</span> Dendritic spines provide cognitive resilience against Alzheimer's disease. <span class="jr">Annals of Neurology</span> 2017;82:602–614. <a href="https://doi.org/10.1002/ana.25049">doi:10.1002/ana.25049</a></span></li>
+        <li id="r45"><span><span class="au">Day M, et al.</span> Selective elimination of glutamatergic synapses on striatopallidal neurons in Parkinson disease models. <span class="jr">Nature Neuroscience</span> 2006;9:251–259. <a href="https://doi.org/10.1038/nn1632">doi:10.1038/nn1632</a></span></li>
+        <li id="r46"><span><span class="au">Cepeda NJ, et al.</span> Distributed practice in verbal recall tasks: a review and quantitative synthesis. <span class="jr">Psychological Bulletin</span> 2006;132:354–380. <a href="https://doi.org/10.1037/0033-2909.132.3.354">doi:10.1037/0033-2909.132.3.354</a></span></li>
+        <li id="r47"><span><span class="au">Roediger HL, Karpicke JD.</span> Test-enhanced learning: taking memory tests improves long-term retention. <span class="jr">Psychological Science</span> 2006;17:249–255. <a href="https://doi.org/10.1111/j.1467-9280.2006.01693.x">doi:10.1111/j.1467-9280.2006.01693.x</a></span></li>
+        <li id="r48"><span><span class="au">Balota DA, et al.</span> Does expanded retrieval produce benefits over equal-interval spacing? Explorations of spacing effects in healthy aging and early stage Alzheimer's disease. <span class="jr">Psychology and Aging</span> 2006;21:19–31. <a href="https://pubmed.ncbi.nlm.nih.gov/16594788/">PMID 16594788</a></span></li>
+        <li id="r49"><span><span class="au">Han JW, et al.</span> Ubiquitous spaced retrieval-based memory advancement and rehabilitation training for mild cognitive impairment. <span class="jr">Alzheimer's Research &amp; Therapy</span> 2017;9:39. <a href="https://doi.org/10.1186/s13195-017-0264-8">doi:10.1186/s13195-017-0264-8</a></span></li>
+        <li id="r50"><span><span class="au">de Werd MME, et al.</span> Errorless learning of everyday tasks in people with dementia. <span class="jr">Clinical Interventions in Aging</span> 2013;8:1177–1190. <a href="https://pubmed.ncbi.nlm.nih.gov/24049443/">PMID 24049443</a></span></li>
+        <li id="r51"><span><span class="au">Clare L, et al.</span> Goal-oriented cognitive rehabilitation in early-stage dementia: the GREAT RCT. <span class="jr">Health Technology Assessment</span> 2019. <a href="https://www.ncbi.nlm.nih.gov/books/NBK538651/">NBK538651</a></span></li>
+        <li id="r52"><span><span class="au">Kudlicka A, et al.</span> Cognitive rehabilitation for people with mild to moderate dementia. <span class="jr">Cochrane Database of Systematic Reviews</span> 2023;CD013388. <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD013388.pub2/full">cochranelibrary.com</a></span></li>
+        <li id="r53"><span><span class="au">Dodge HH, et al.</span> Internet-based conversational engagement randomized controlled clinical trial (I-CONECT). <span class="jr">The Gerontologist</span> 2024;64:gnad147. <a href="https://doi.org/10.1093/geront/gnad147">doi:10.1093/geront/gnad147</a></span></li>
+        <li id="r54"><span><span class="au">Chan MKK, Ng PHF, Liu KPY.</span> Conversational AI for people with dementia: a systematic review. <span class="jr">Healthcare</span> 2026;14:2106. <a href="https://doi.org/10.3390/healthcare14142106">doi:10.3390/healthcare14142106</a></span></li>
+        <li id="r55"><span><span class="au">Medical Device Coordination Group.</span> MDCG 2019-11 rev. 1: Guidance on qualification and classification of software (MDR/IVDR). Comisión Europea. <a href="https://health.ec.europa.eu/system/files/2020-09/md_mdcg_2019_11_guidance_en_0.pdf">health.ec.europa.eu</a></span></li>
+        <li id="r56"><span><span class="au">Woods B, et al.</span> Cognitive stimulation to improve cognitive functioning in people with dementia. <span class="jr">Cochrane Database of Systematic Reviews</span> 2023;CD005562. <a href="https://www.cochrane.org/evidence/CD005562_can-cognitive-stimulation-benefit-people-dementia">cochrane.org</a></span></li>
+        <li id="r57"><span><span class="au">Livingston G, et al.</span> Dementia prevention, intervention, and care: 2024 report of the Lancet standing Commission. <span class="jr">The Lancet</span> 2024;404:572–628. <a href="https://doi.org/10.1016/S0140-6736(24)01296-0">doi:10.1016/S0140-6736(24)01296-0</a></span></li>
+      </ol>
+      <div class="refs-group">Actividad propia del cerebro</div>
+      <ol class="refs" start="58">
+        <li id="r58"><span><span class="au">Raichle ME, et al.</span> A default mode of brain function. <span class="jr">PNAS</span> 2001;98:676–682. <a href="https://doi.org/10.1073/pnas.98.2.676">doi:10.1073/pnas.98.2.676</a></span></li>
+        <li id="r59"><span><span class="au">Rigotti M, et al.</span> The importance of mixed selectivity in complex cognitive tasks. <span class="jr">Nature</span> 2013;497:585–590. <a href="https://doi.org/10.1038/nature12160">doi:10.1038/nature12160</a></span></li>
+      </ol>
+    </div>
+
+    <h2 id="cita"><span class="n">C</span>Cómo citar</h2>
+    <pre id="bibtex">@techreport{launer2026dendrita,
+  title       = {Construir una dendrita dentro de un modelo de lenguaje:
+                 Launer, una inteligencia emocional artificial hecha de partes diminutas},
+  author      = {Aguirre P{\'e}rez, Juan Carlos},
+  institution = {GestasAI},
+  number      = {LNR-2026-01},
+  year        = {2026},
+  month       = {9},
+  note        = {Versi{\'o}n 0.2. DOI pendiente},
+  url         = {https://launer.es/research/lnr-2026-01}
+}</pre>
+    <div class="btn-row">
+      <button class="btn" id="copy" type="button">Copiar BibTeX</button>
+      <span id="copy-state" aria-live="polite"></span>
+    </div>
+  </article>
+  </main>
+</div>
+
+<footer>
+  <p class="about">Launer es el programa de investigación de <a href="https://gestasai.com/">GestasAI</a>, empresa tecnológica española que pone la inteligencia artificial al servicio de las personas manteniendo la soberanía de sus datos: los modelos se ejecutan en el dispositivo de cada persona y nada sale de él salvo que ella lo decida.</p>
+  <div class="row">
+    <span>Empresa: <a href="https://gestasai.com/">gestasai.com</a></span>
+    <span>Autor: <a href="https://juancarlosaguirre.es" rel="author">Juan Carlos Aguirre Pérez</a></span>
+    <span>Contacto: <a href="mailto:info@gestasai.com">info@gestasai.com</a></span>
+    <span>Código abierto: <a href="https://github.com/GestasAI/launer" rel="me">github.com/GestasAI/launer</a></span>
+    <span>Lo medido se cuenta como medido</span>
+  </div>
+</footer>
+<div id="tip" role="tooltip"></div>
+
+<script>
+  (function () {
+    var tip = document.getElementById('tip');
+    function show(el, x, y) {
+      tip.textContent = el.getAttribute('data-tip');
+      tip.style.display = 'block';
+      var w = tip.offsetWidth, h = tip.offsetHeight;
+      var left = Math.min(x + 14, window.innerWidth - w - 8);
+      var top = y - h - 12; if (top < 8) top = y + 16;
+      tip.style.left = left + 'px'; tip.style.top = top + 'px';
+    }
+    function hide() { tip.style.display = 'none'; }
+    var marks = document.querySelectorAll('.mark');
+    for (var i = 0; i < marks.length; i++) {
+      marks[i].addEventListener('mousemove', function (e) { show(this, e.clientX, e.clientY); });
+      marks[i].addEventListener('mouseleave', hide);
+      marks[i].addEventListener('focus', function () { var r = this.getBoundingClientRect(); show(this, r.left + r.width / 2, r.top); });
+      marks[i].addEventListener('blur', hide);
+    }
+    var btn = document.getElementById('copy'), state = document.getElementById('copy-state');
+    btn.addEventListener('click', function () {
+      var text = document.getElementById('bibtex').textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { state.textContent = 'Copiado'; }, function () { state.textContent = 'No se pudo copiar: selecciona el texto'; });
+      } else { state.textContent = 'No se pudo copiar: selecciona el texto'; }
+    });
+  })();
+</script>

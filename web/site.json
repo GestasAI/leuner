@@ -1,0 +1,21 @@
+{
+  "url": "https://launer.es/",
+  "site_name": "Launer",
+  "analytics_id": "G-PJCQ7EX4M2",
+  "organization": {
+    "name": "GestasAI",
+    "legal_name": "GestasAI",
+    "url": "https://gestasai.com/",
+    "email": "info@gestasai.com",
+    "description": "Empresa tecnológica española que pone la inteligencia artificial al servicio de las personas manteniendo la soberanía de sus datos: los modelos se ejecutan en el dispositivo del usuario y nada sale de él salvo que la persona lo decida.",
+    "founders": ["Juan Carlos Aguirre Pérez", "Francisco Jiménez Asensio"],
+    "profiles": ["https://github.com/GestasAI"]
+  },
+  "author": {
+    "name": "Juan Carlos Aguirre Pérez",
+    "url": "https://juancarlosaguirre.es",
+    "job_title": "Cofundador de GestasAI e investigador principal de Launer",
+    "description": "Cofundador de GestasAI. Dirige Launer, el programa de investigación que construye una dendrita artificial dentro de un modelo de lenguaje abierto para una inteligencia emocional orientada a acompañar.",
+    "profiles": []
+  }
+}

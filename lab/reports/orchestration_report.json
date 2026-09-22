@@ -1,0 +1,2712 @@
+{
+  "date_utc": "2026-09-22T19:58:23Z",
+  "model": "D:/GESTASAI/Desarrollos/aurora/files/modelo/gemma-4-e2b-it-hf",
+  "layer": 20,
+  "scale": 4.0,
+  "seed": 0,
+  "n_test": 15,
+  "composer_country": {
+    "base": 0.0,
+    "protein": 0.8,
+    "rows": [
+      {
+        "composer": "Mozart",
+        "expected": "Austria",
+        "base": "The country of composer Mozart was",
+        "protein": "Austria"
+      },
+      {
+        "composer": "Bizet",
+        "expected": "France",
+        "base": "The composer Bizet was **",
+        "protein": "France"
+      },
+      {
+        "composer": "Monteverdi",
+        "expected": "Italy",
+        "base": "The country of composer **Cl",
+        "protein": "Italy"
+      },
+      {
+        "composer": "Tchaikovsky",
+        "expected": "Russia",
+        "base": "The composer Pyotr Ilyich",
+        "protein": "Russia"
+      },
+      {
+        "composer": "Rachmaninoff",
+        "expected": "Russia",
+        "base": "The composer **Sergei",
+        "protein": "Russia"
+      },
+      {
+        "composer": "Ravel",
+        "expected": "France",
+        "base": "The composer **Maurice Ravel",
+        "protein": "France"
+      },
+      {
+        "composer": "Nielsen",
+        "expected": "Denmark",
+        "base": "The composer **Nielsen**",
+        "protein": "Norway"
+      },
+      {
+        "composer": "Falla",
+        "expected": "Spain",
+        "base": "The composer **Manuel de F",
+        "protein": "Spain"
+      },
+      {
+        "composer": "Wagner",
+        "expected": "Germany",
+        "base": "The composer Richard Wagner was **",
+        "protein": "Germany"
+      },
+      {
+        "composer": "Bach",
+        "expected": "Germany",
+        "base": "The country of composer **Johann",
+        "protein": "Germany"
+      },
+      {
+        "composer": "Vivaldi",
+        "expected": "Italy",
+        "base": "The country of composer Vival",
+        "protein": "Italy"
+      },
+      {
+        "composer": "Rossini",
+        "expected": "Italy",
+        "base": "The composer **Gioachino",
+        "protein": "Italy"
+      },
+      {
+        "composer": "Dvorak",
+        "expected": "Czechia",
+        "base": "The composer Antonín Dvoř",
+        "protein": "Czech"
+      },
+      {
+        "composer": "Schubert",
+        "expected": "Austria",
+        "base": "The composer **Franz Schubert**",
+        "protein": "Austria"
+      },
+      {
+        "composer": "Liszt",
+        "expected": "Hungary",
+        "base": "Franz Liszt was **Hungarian",
+        "protein": "Austria"
+      }
+    ]
+  },
+  "router": {
+    "accuracy": 0.8571428571428571,
+    "rows": [
+      {
+        "question": "Country of composer Mozart:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Bizet:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Monteverdi:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Tchaikovsky:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Rachmaninoff:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Ravel:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Nielsen:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Falla:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Wagner:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Bach:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Vivaldi:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Rossini:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Dvorak:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Schubert:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Country of composer Liszt:",
+        "expected": "A",
+        "choice": "A",
+        "probs": {
+          "A": 1.0,
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Austria:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of France:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Italy:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Russia:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Russia:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of France:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Denmark:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Spain:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Germany:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Germany:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Italy:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Italy:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Czechia:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Austria:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "Capital of Hungary:",
+        "expected": "B",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 1.0,
+          "C": 0.0,
+          "D": 0.0
+        },
+        "hit": true
+      },
+      {
+        "question": "English to Spanish: Vienna =",
+        "expected": "C",
+        "choice": "C",
+        "probs": {
+          "A": 0.047,
+          "B": 0.005,
+          "C": 0.895,
+          "D": 0.052
+        },
+        "hit": true
+      },
+      {
+        "question": "English to Spanish: Berlin =",
+        "expected": "C",
+        "choice": "B",
+        "probs": {
+          "A": 0.12,
+          "B": 0.475,
+          "C": 0.034,
+          "D": 0.37
+        },
+        "hit": false
+      },
+      {
+        "question": "English to Spanish: Rome =",
+        "expected": "C",
+        "choice": "C",
+        "probs": {
+          "A": 0.002,
+          "B": 0.003,
+          "C": 0.974,
+          "D": 0.02
+        },
+        "hit": true
+      },
+      {
+        "question": "English to Spanish: Paris =",
+        "expected": "C",
+        "choice": "C",
+        "probs": {
+          "A": 0.002,
+          "B": 0.002,
+          "C": 0.983,
+          "D": 0.013
+        },
+        "hit": true
+      },
+      {
+        "question": "English to Spanish: Moscow =",
+        "expected": "C",
+        "choice": "C",
+        "probs": {
+          "A": 0.074,
+          "B": 0.009,
+          "C": 0.659,
+          "D": 0.258
+        },
+        "hit": true
+      },
+      {
+        "question": "English to Spanish: Warsaw =",
+        "expected": "C",
+        "choice": "D",
+        "probs": {
+          "A": 0.303,
+          "B": 0.173,
+          "C": 0.135,
+          "D": 0.389
+        },
+        "hit": false
+      },
+      {
+        "question": "English to Spanish: Helsinki =",
+        "expected": "C",
+        "choice": "C",
+        "probs": {
+          "A": 0.0,
+          "B": 0.0,
+          "C": 0.998,
+          "D": 0.001
+        },
+        "hit": true
+      },
+      {
+        "question": "English to Spanish: Oslo =",
+        "expected": "C",
+        "choice": "C",
+        "probs": {
+          "A": 0.008,
+          "B": 0.001,
+          "C": 0.934,
+          "D": 0.056
+        },
+        "hit": true
+      },
+      {
+        "question": "English to Spanish: Budapest =",
+        "expected": "C",
+        "choice": "B",
+        "probs": {
+          "A": 0.064,
+          "B": 0.882,
+          "C": 0.008,
+          "D": 0.047
+        },
+        "hit": false
+      },
+      {
+        "question": "English to Spanish: Madrid =",
+        "expected": "C",
+        "choice": "B",
+        "probs": {
+          "A": 0.0,
+          "B": 0.999,
+          "C": 0.0,
+          "D": 0.001
+        },
+        "hit": false
+      },
+      {
+        "question": "English to Spanish: Copenhagen =",
+        "expected": "C",
+        "choice": "B",
+        "probs": {
+          "A": 0.157,
+          "B": 0.548,
+          "C": 0.051,
+          "D": 0.243
+        },
+        "hit": false
+      },
+      {
+        "question": "English to Spanish: Prague =",
+        "expected": "C",
+        "choice": "B",
+        "probs": {
+          "A": 0.043,
+          "B": 0.481,
+          "C": 0.076,
+          "D": 0.399
+        },
+        "hit": false
+      }
+    ]
+  },
+  "chain_summary": {
+    "orchestrated": {
+      "step_country": 0.8,
+      "step_capital": 0.8666666666666667,
+      "step_spanish": 0.8666666666666667,
+      "end_to_end": 0.8
+    },
+    "base": {
+      "step_country": 0.0,
+      "step_capital": 0.0,
+      "step_spanish": 0.0,
+      "end_to_end": 0.0
+    },
+    "wrong_fixed": {
+      "step_country": 0.13333333333333333,
+      "step_capital": 0.0,
+      "step_spanish": 0.0,
+      "end_to_end": 0.0
+    }
+  },
+  "chain": {
+    "orchestrated": [
+      {
+        "composer": "Mozart",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Mozart",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Austria",
+            "parsed": "Austria",
+            "expected": "Austria",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Austria",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Vienna",
+            "parsed": "Vienna",
+            "expected": "Vienna",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Vienna",
+            "route": "C",
+            "probs": {
+              "A": 0.001,
+              "B": 0.0,
+              "C": 0.997,
+              "D": 0.002
+            },
+            "generated": "Vienna = **Viena**",
+            "parsed": "Vienna",
+            "expected": "Viena",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Bizet",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Bizet",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "France",
+            "parsed": "France",
+            "expected": "France",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "France",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Paris",
+            "parsed": "Paris",
+            "expected": "Paris",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Paris",
+            "route": "C",
+            "probs": {
+              "A": 0.005,
+              "B": 0.014,
+              "C": 0.964,
+              "D": 0.018
+            },
+            "generated": "parís",
+            "parsed": "parís",
+            "expected": "Paris",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Monteverdi",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Monteverdi",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Italy",
+            "parsed": "Italy",
+            "expected": "Italy",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Italy",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Rome",
+            "parsed": "Rome",
+            "expected": "Rome",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Rome",
+            "route": "C",
+            "probs": {
+              "A": 0.002,
+              "B": 0.003,
+              "C": 0.985,
+              "D": 0.009
+            },
+            "generated": "Roma",
+            "parsed": "Roma",
+            "expected": "Roma",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Tchaikovsky",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Tchaikovsky",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Russia",
+            "parsed": "Russia",
+            "expected": "Russia",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Russia",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Moscow",
+            "parsed": "Moscow",
+            "expected": "Moscow",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Moscow",
+            "route": "C",
+            "probs": {
+              "A": 0.007,
+              "B": 0.002,
+              "C": 0.97,
+              "D": 0.02
+            },
+            "generated": "moscú",
+            "parsed": "moscú",
+            "expected": "Moscu",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Rachmaninoff",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Rachmaninoff",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Russia",
+            "parsed": "Russia",
+            "expected": "Russia",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Russia",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Moscow",
+            "parsed": "Moscow",
+            "expected": "Moscow",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Moscow",
+            "route": "C",
+            "probs": {
+              "A": 0.007,
+              "B": 0.002,
+              "C": 0.97,
+              "D": 0.02
+            },
+            "generated": "moscú",
+            "parsed": "moscú",
+            "expected": "Moscu",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Ravel",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Ravel",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "France",
+            "parsed": "France",
+            "expected": "France",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "France",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Paris",
+            "parsed": "Paris",
+            "expected": "Paris",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Paris",
+            "route": "C",
+            "probs": {
+              "A": 0.005,
+              "B": 0.014,
+              "C": 0.964,
+              "D": 0.018
+            },
+            "generated": "parís",
+            "parsed": "parís",
+            "expected": "Paris",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Nielsen",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Nielsen",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Norway",
+            "parsed": "Norway",
+            "expected": "Denmark",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Norway",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Oslo",
+            "parsed": "Oslo",
+            "expected": "Copenhagen",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Oslo",
+            "route": "C",
+            "probs": {
+              "A": 0.001,
+              "B": 0.0,
+              "C": 0.996,
+              "D": 0.003
+            },
+            "generated": "Oslo = **Oslo",
+            "parsed": "Oslo",
+            "expected": "Copenhague",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Falla",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Falla",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Spain",
+            "parsed": "Spain",
+            "expected": "Spain",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Spain",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Madrid",
+            "parsed": "Madrid",
+            "expected": "Madrid",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Madrid",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 0.999,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Madrid = **Madrid**",
+            "parsed": "Madrid",
+            "expected": "Madrid",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Wagner",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Wagner",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Germany",
+            "parsed": "Germany",
+            "expected": "Germany",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Germany",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Berlin",
+            "parsed": "Berlin",
+            "expected": "Berlin",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Berlin",
+            "route": "C",
+            "probs": {
+              "A": 0.088,
+              "B": 0.113,
+              "C": 0.449,
+              "D": 0.349
+            },
+            "generated": "berlín",
+            "parsed": "berlín",
+            "expected": "Berlin",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Bach",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Bach",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Germany",
+            "parsed": "Germany",
+            "expected": "Germany",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Germany",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Berlin",
+            "parsed": "Berlin",
+            "expected": "Berlin",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Berlin",
+            "route": "C",
+            "probs": {
+              "A": 0.088,
+              "B": 0.113,
+              "C": 0.449,
+              "D": 0.349
+            },
+            "generated": "berlín",
+            "parsed": "berlín",
+            "expected": "Berlin",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Vivaldi",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Vivaldi",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Italy",
+            "parsed": "Italy",
+            "expected": "Italy",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Italy",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Rome",
+            "parsed": "Rome",
+            "expected": "Rome",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Rome",
+            "route": "C",
+            "probs": {
+              "A": 0.002,
+              "B": 0.003,
+              "C": 0.985,
+              "D": 0.009
+            },
+            "generated": "Roma",
+            "parsed": "Roma",
+            "expected": "Roma",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Rossini",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Rossini",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Italy",
+            "parsed": "Italy",
+            "expected": "Italy",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Italy",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Rome",
+            "parsed": "Rome",
+            "expected": "Rome",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Rome",
+            "route": "C",
+            "probs": {
+              "A": 0.002,
+              "B": 0.003,
+              "C": 0.985,
+              "D": 0.009
+            },
+            "generated": "Roma",
+            "parsed": "Roma",
+            "expected": "Roma",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Dvorak",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Dvorak",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Czech",
+            "parsed": "Czech",
+            "expected": "Czechia",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Czech",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Prague",
+            "parsed": "Prague",
+            "expected": "Prague",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Prague",
+            "route": "C",
+            "probs": {
+              "A": 0.005,
+              "B": 0.006,
+              "C": 0.97,
+              "D": 0.019
+            },
+            "generated": "praga",
+            "parsed": "praga",
+            "expected": "Praga",
+            "hit": true
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Schubert",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Schubert",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Austria",
+            "parsed": "Austria",
+            "expected": "Austria",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Austria",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Vienna",
+            "parsed": "Vienna",
+            "expected": "Vienna",
+            "hit": true
+          },
+          {
+            "step": "translate",
+            "input": "Vienna",
+            "route": "C",
+            "probs": {
+              "A": 0.001,
+              "B": 0.0,
+              "C": 0.997,
+              "D": 0.002
+            },
+            "generated": "Vienna = **Viena**",
+            "parsed": "Vienna",
+            "expected": "Viena",
+            "hit": true
+          }
+        ],
+        "end_to_end": true,
+        "step_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "composer": "Liszt",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Liszt",
+            "route": "A",
+            "probs": {
+              "A": 1.0,
+              "B": 0.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Austria",
+            "parsed": "Austria",
+            "expected": "Hungary",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Austria",
+            "route": "B",
+            "probs": {
+              "A": 0.0,
+              "B": 1.0,
+              "C": 0.0,
+              "D": 0.0
+            },
+            "generated": "Vienna",
+            "parsed": "Vienna",
+            "expected": "Budapest",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Vienna",
+            "route": "C",
+            "probs": {
+              "A": 0.001,
+              "B": 0.0,
+              "C": 0.997,
+              "D": 0.002
+            },
+            "generated": "Vienna = **Viena**",
+            "parsed": "Vienna",
+            "expected": "Budapest",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "base": [
+      {
+        "composer": "Mozart",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Mozart",
+            "route": "-",
+            "probs": {},
+            "generated": "The country of composer Mozart was",
+            "parsed": "The",
+            "expected": "Austria",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Vienna",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Viena",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Bizet",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Bizet",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer Bizet was **",
+            "parsed": "The",
+            "expected": "France",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Paris",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Paris",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Monteverdi",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Monteverdi",
+            "route": "-",
+            "probs": {},
+            "generated": "The country of composer **Cl",
+            "parsed": "The",
+            "expected": "Italy",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Rome",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Roma",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Tchaikovsky",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Tchaikovsky",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer Pyotr Ilyich",
+            "parsed": "The",
+            "expected": "Russia",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Moscow",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Moscu",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Rachmaninoff",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Rachmaninoff",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer **Sergei",
+            "parsed": "The",
+            "expected": "Russia",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Moscow",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Moscu",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Ravel",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Ravel",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer **Maurice Ravel",
+            "parsed": "The",
+            "expected": "France",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Paris",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Paris",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Nielsen",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Nielsen",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer **Nielsen**",
+            "parsed": "The",
+            "expected": "Denmark",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Copenhagen",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Copenhague",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Falla",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Falla",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer **Manuel de F",
+            "parsed": "The",
+            "expected": "Spain",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Madrid",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Madrid",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Wagner",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Wagner",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer Richard Wagner was **",
+            "parsed": "The",
+            "expected": "Germany",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Berlin",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Berlin",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Bach",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Bach",
+            "route": "-",
+            "probs": {},
+            "generated": "The country of composer **Johann",
+            "parsed": "The",
+            "expected": "Germany",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Berlin",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Berlin",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Vivaldi",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Vivaldi",
+            "route": "-",
+            "probs": {},
+            "generated": "The country of composer Vival",
+            "parsed": "The",
+            "expected": "Italy",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Rome",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Roma",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Rossini",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Rossini",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer **Gioachino",
+            "parsed": "The",
+            "expected": "Italy",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Rome",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Roma",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Dvorak",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Dvorak",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer Antonín Dvoř",
+            "parsed": "The",
+            "expected": "Czechia",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Prague",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Praga",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Schubert",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Schubert",
+            "route": "-",
+            "probs": {},
+            "generated": "The composer **Franz Schubert**",
+            "parsed": "The",
+            "expected": "Austria",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the name of the",
+            "parsed": "Please",
+            "expected": "Vienna",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Please",
+            "route": "-",
+            "probs": {},
+            "generated": "The Spanish translation for \"Please",
+            "parsed": "The Spanish",
+            "expected": "Viena",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Liszt",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Liszt",
+            "route": "-",
+            "probs": {},
+            "generated": "Franz Liszt was **Hungarian",
+            "parsed": "Franz Liszt",
+            "expected": "Hungary",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Franz Liszt",
+            "route": "-",
+            "probs": {},
+            "generated": "The capital of Franz Liszt",
+            "parsed": "The",
+            "expected": "Budapest",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "The",
+            "route": "-",
+            "probs": {},
+            "generated": "Please provide the word or phrase",
+            "parsed": "Please",
+            "expected": "Budapest",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    "wrong_fixed": [
+      {
+        "composer": "Mozart",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Mozart",
+            "route": "C",
+            "probs": {},
+            "generated": "Mozart was from **Austria",
+            "parsed": "Mozart",
+            "expected": "Austria",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Mozart",
+            "route": "C",
+            "probs": {},
+            "generated": "mozzart was born in",
+            "parsed": "mozzart",
+            "expected": "Vienna",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "mozzart",
+            "route": "C",
+            "probs": {},
+            "generated": "mozzart = **Moz",
+            "parsed": "mozzart",
+            "expected": "Viena",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Bizet",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Bizet",
+            "route": "C",
+            "probs": {},
+            "generated": "Elise-José Bizet",
+            "parsed": "Elise",
+            "expected": "France",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Elise",
+            "route": "C",
+            "probs": {},
+            "generated": "Elise is a common name",
+            "parsed": "Elise",
+            "expected": "Paris",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Elise",
+            "route": "C",
+            "probs": {},
+            "generated": "Elise = **Elise",
+            "parsed": "Elise",
+            "expected": "Paris",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Monteverdi",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Monteverdi",
+            "route": "C",
+            "probs": {},
+            "generated": "El Monteverdi was from",
+            "parsed": "El Monteverdi",
+            "expected": "Italy",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "El Monteverdi",
+            "route": "C",
+            "probs": {},
+            "generated": "El Monteverdi is a",
+            "parsed": "El Monteverdi",
+            "expected": "Rome",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "El Monteverdi",
+            "route": "C",
+            "probs": {},
+            "generated": "monteverdi",
+            "parsed": "monteverdi",
+            "expected": "Roma",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Tchaikovsky",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Tchaikovsky",
+            "route": "C",
+            "probs": {},
+            "generated": "Tchaikovsky was a **",
+            "parsed": "Tchaikovsky",
+            "expected": "Russia",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Tchaikovsky",
+            "route": "C",
+            "probs": {},
+            "generated": "Tchaikovsky was born in",
+            "parsed": "Tchaikovsky",
+            "expected": "Moscow",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Tchaikovsky",
+            "route": "C",
+            "probs": {},
+            "generated": "Tchaikovsky = **T",
+            "parsed": "Tchaikovsky",
+            "expected": "Moscu",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Rachmaninoff",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Rachmaninoff",
+            "route": "C",
+            "probs": {},
+            "generated": "Rachmaninoff was **",
+            "parsed": "Rachmaninoff",
+            "expected": "Russia",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Rachmaninoff",
+            "route": "C",
+            "probs": {},
+            "generated": "Rachmaninoff is a",
+            "parsed": "Rachmaninoff",
+            "expected": "Moscow",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Rachmaninoff",
+            "route": "C",
+            "probs": {},
+            "generated": "rachmaninoff",
+            "parsed": "rachmaninoff",
+            "expected": "Moscu",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Ravel",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Ravel",
+            "route": "C",
+            "probs": {},
+            "generated": "Ravel was **French**.",
+            "parsed": "Ravel",
+            "expected": "France",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Ravel",
+            "route": "C",
+            "probs": {},
+            "generated": "Ravel is a French composer",
+            "parsed": "Ravel",
+            "expected": "Paris",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Ravel",
+            "route": "C",
+            "probs": {},
+            "generated": "Ravel = **Ravel",
+            "parsed": "Ravel",
+            "expected": "Paris",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Nielsen",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Nielsen",
+            "route": "C",
+            "probs": {},
+            "generated": "Nielsen was **Danish",
+            "parsed": "Nielsen",
+            "expected": "Denmark",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Nielsen",
+            "route": "C",
+            "probs": {},
+            "generated": "Nielsen is a company with",
+            "parsed": "Nielsen",
+            "expected": "Copenhagen",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Nielsen",
+            "route": "C",
+            "probs": {},
+            "generated": "nielsen",
+            "parsed": "nielsen",
+            "expected": "Copenhague",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Falla",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Falla",
+            "route": "C",
+            "probs": {},
+            "generated": "país de Falla:",
+            "parsed": "país",
+            "expected": "Spain",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "país",
+            "route": "C",
+            "probs": {},
+            "generated": "país: **[Insert",
+            "parsed": "país",
+            "expected": "Madrid",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "país",
+            "route": "C",
+            "probs": {},
+            "generated": "país",
+            "parsed": "país",
+            "expected": "Madrid",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Wagner",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Wagner",
+            "route": "C",
+            "probs": {},
+            "generated": "Wagner was a **German**",
+            "parsed": "Wagner",
+            "expected": "Germany",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Wagner",
+            "route": "C",
+            "probs": {},
+            "generated": "Wagner is a German name,",
+            "parsed": "Wagner",
+            "expected": "Berlin",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Wagner",
+            "route": "C",
+            "probs": {},
+            "generated": "Wagner = **Wagner**",
+            "parsed": "Wagner",
+            "expected": "Berlin",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Bach",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Bach",
+            "route": "C",
+            "probs": {},
+            "generated": "Bach was from **Germany**.",
+            "parsed": "Bach",
+            "expected": "Germany",
+            "hit": true
+          },
+          {
+            "step": "capital",
+            "input": "Bach",
+            "route": "C",
+            "probs": {},
+            "generated": "Bach is a German composer,",
+            "parsed": "Bach",
+            "expected": "Berlin",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Bach",
+            "route": "C",
+            "probs": {},
+            "generated": "Bach = **Bach** (",
+            "parsed": "Bach",
+            "expected": "Berlin",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          true,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Vivaldi",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Vivaldi",
+            "route": "C",
+            "probs": {},
+            "generated": "Eliseo Redibondo",
+            "parsed": "Eliseo Redibondo",
+            "expected": "Italy",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Eliseo Redibondo",
+            "route": "C",
+            "probs": {},
+            "generated": "Eliseo Redibondo",
+            "parsed": "Eliseo Redibondo",
+            "expected": "Rome",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Eliseo Redibondo",
+            "route": "C",
+            "probs": {},
+            "generated": "Eliseo Redibondo",
+            "parsed": "Eliseo Redibondo",
+            "expected": "Roma",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Rossini",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Rossini",
+            "route": "C",
+            "probs": {},
+            "generated": "Eliseo Rossini was",
+            "parsed": "Eliseo Rossini",
+            "expected": "Italy",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Eliseo Rossini",
+            "route": "C",
+            "probs": {},
+            "generated": "Eliseo Rossini is",
+            "parsed": "Eliseo Rossini",
+            "expected": "Rome",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Eliseo Rossini",
+            "route": "C",
+            "probs": {},
+            "generated": "Eliseo Rossini",
+            "parsed": "Eliseo Rossini",
+            "expected": "Roma",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Dvorak",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Dvorak",
+            "route": "C",
+            "probs": {},
+            "generated": "pa**olska** (Polish",
+            "parsed": "pa",
+            "expected": "Czechia",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "pa",
+            "route": "C",
+            "probs": {},
+            "generated": "pa is the abbreviation for **",
+            "parsed": "pa",
+            "expected": "Prague",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "pa",
+            "route": "C",
+            "probs": {},
+            "generated": "pa = **pa**",
+            "parsed": "pa",
+            "expected": "Praga",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Schubert",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Schubert",
+            "route": "C",
+            "probs": {},
+            "generated": "Elżbieta Schubert was",
+            "parsed": "El",
+            "expected": "Austria",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "El",
+            "route": "C",
+            "probs": {},
+            "generated": "Capital of El is **Madrid",
+            "parsed": "Capital",
+            "expected": "Vienna",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Capital",
+            "route": "C",
+            "probs": {},
+            "generated": "capital",
+            "parsed": "capital",
+            "expected": "Viena",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "composer": "Liszt",
+        "steps": [
+          {
+            "step": "composer_country",
+            "input": "Liszt",
+            "route": "C",
+            "probs": {},
+            "generated": "Elise Caspar Liszt",
+            "parsed": "Elise Caspar",
+            "expected": "Hungary",
+            "hit": false
+          },
+          {
+            "step": "capital",
+            "input": "Elise Caspar",
+            "route": "C",
+            "probs": {},
+            "generated": "Elise Caspar is a",
+            "parsed": "Elise Caspar",
+            "expected": "Budapest",
+            "hit": false
+          },
+          {
+            "step": "translate",
+            "input": "Elise Caspar",
+            "route": "C",
+            "probs": {},
+            "generated": "Elise Caspar",
+            "parsed": "Elise Caspar",
+            "expected": "Budapest",
+            "hit": false
+          }
+        ],
+        "end_to_end": false,
+        "step_hits": [
+          false,
+          false,
+          false
+        ]
+      }
+    ]
+  },
+  "elapsed_s": 943
+}

@@ -1,0 +1,26 @@
+# F0 — laboratorio de la primera proteina (function / task vector)
+# Python 3.10+  |  CPU o CUDA (sin GPU en la semilla Oppo; PC de 64 GB para maestro)
+#
+# Versiones verificadas (9-jun-2026):
+#   torch 2.7.1+cpu · transformers 5.10.2 · nnsight 0.7.0 · numpy 2.2.6
+#
+# Instalar:
+#   pip install -r requirements.txt
+#
+# Para Gemma (gated): huggingface-cli login y aceptar licencia en HF Hub.
+# Para Gemma 4 E2B-it: descarga ~4 GB de safetensors.
+#   python -c "from huggingface_hub import snapshot_download; snapshot_download('google/gemma-4-E2B-it', ignore_patterns=['*.gguf','*.bin','original/*'])"
+
+# Framework de inferencia
+torch>=2.7.0            # 2.7+ requerido para float8_e8m0fnu (Gemma 4 / transformers 5.x)
+transformers>=5.10.0    # soporte Gemma 4 (Gemma4ForConditionalGeneration)
+accelerate>=0.30.0      # low_cpu_mem_usage y device_map
+
+# Interspeccion de activaciones (v1 — mediacion causal por cabeza, Todd & Bau)
+nnsight>=0.7.0
+
+# Descarga de modelos
+huggingface_hub>=0.28.0
+
+# Opcionales para visualizacion
+numpy>=2.0.0

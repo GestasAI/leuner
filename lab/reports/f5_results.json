@@ -1,0 +1,38 @@
+{
+  "results": [
+    {
+      "task": "translate_es_en",
+      "accuracy_base": 0.0,
+      "accuracy_protein": 0.9333,
+      "gain": 0.9333,
+      "gate": "PASA",
+      "gate_type": "first_token",
+      "elapsed_s": 270.6,
+      "artifact": {
+        "name": "translate_es_en.gemma-4-E2B-it.L20.s4.0",
+        "sha256": "2f26be4a6b532435...",
+        "size_bytes": 6144
+      }
+    },
+    {
+      "task": "summarize",
+      "accuracy_base": 1.0,
+      "accuracy_protein": 1.0,
+      "gain": 0.0,
+      "gate": "FALLA",
+      "gate_type": "short_output",
+      "elapsed_s": 695.1
+    },
+    {
+      "task": "classify_intent",
+      "accuracy_base": 0.0,
+      "accuracy_protein": 0.3333,
+      "gain": 0.3333,
+      "gate": "FALLA",
+      "gate_type": "first_token",
+      "elapsed_s": 440.5
+    }
+  ],
+  "elapsed_total_s": 1581.0,
+  "created_utc": "2026-06-11T10:00:26Z"
+}

@@ -1,0 +1,32 @@
+{
+  "task": "translate",
+  "model": "google/gemma-4-E2B-it",
+  "layer": 20,
+  "scale": 4.0,
+  "seed": 0,
+  "n_extract": 10,
+  "n_test": 20,
+  "reference": {
+    "dtype": "bfloat16",
+    "device": "cpu",
+    "accuracy_base": 0.0,
+    "accuracy_protein": 0.9,
+    "gain": 0.9
+  },
+  "quantized": {
+    "quant_label": "bfloat16_proxy",
+    "quant_note": "PROXY bfloat16 CPU: sin CUDA no es posible int4/int8 real con bitsandbytes. bfloat16 tiene 3 bits de mantisa vs float32 (23 bits) — captura efectos de precision reducida pero NO es cuantizacion post-entrenamiento (PTQ).",
+    "accuracy_base": 0.0,
+    "accuracy_protein": 0.9,
+    "gain": 0.9,
+    "delta_vs_reference": 0.0
+  },
+  "gate": {
+    "threshold_factor": 0.7,
+    "threshold_absolute": 0.63,
+    "status": "SUPERVIVE"
+  },
+  "elapsed_s": 393.6,
+  "created_utc": "2026-06-11T09:08:55Z",
+  "limitation": "Sin CUDA, la cuantizacion real (bitsandbytes NF4/int8) no esta disponible. El resultado bfloat16 mide precision reducida, no PTQ. Para el test real de int4 se requiere GPU con soporte CUDA."
+}

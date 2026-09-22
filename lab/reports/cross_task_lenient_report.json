@@ -1,0 +1,763 @@
+{
+  "date_utc": "2026-09-22T19:36:30Z",
+  "model": "D:/GESTASAI/Desarrollos/aurora/files/modelo/gemma-4-e2b-it-hf",
+  "layer": 20,
+  "scale": 4.0,
+  "seed": 0,
+  "metric": "expected word in first 8 generated tokens, case/accent-insensitive",
+  "accuracy": {
+    "capital": {
+      "base": 1.0,
+      "es_en": 0.8666666666666667,
+      "capital": 0.9333333333333333,
+      "mixed": 0.9333333333333333,
+      "n": 15
+    },
+    "translate_es_en": {
+      "base": 0.0,
+      "es_en": 0.9333333333333333,
+      "capital": 0.06666666666666667,
+      "mixed": 0.5333333333333333,
+      "n": 15
+    }
+  },
+  "details": {
+    "capital+base": [
+      {
+        "input": "France",
+        "expected": "Paris",
+        "generated": "The capital of France is **Paris**.",
+        "hit": true
+      },
+      {
+        "input": "Brazil",
+        "expected": "Brasilia",
+        "generated": "The capital of Brazil is **Brasília",
+        "hit": true
+      },
+      {
+        "input": "Chile",
+        "expected": "Santiago",
+        "generated": "The capital of Chile is **Santiago**.",
+        "hit": true
+      },
+      {
+        "input": "Turkey",
+        "expected": "Ankara",
+        "generated": "The capital of Turkey is **Ankara",
+        "hit": true
+      },
+      {
+        "input": "Colombia",
+        "expected": "Bogota",
+        "generated": "The capital of Colombia is **Bogotá",
+        "hit": true
+      },
+      {
+        "input": "Norway",
+        "expected": "Oslo",
+        "generated": "The capital of Norway is **Oslo",
+        "hit": true
+      },
+      {
+        "input": "Croatia",
+        "expected": "Zagreb",
+        "generated": "The capital of Croatia is **Zagreb",
+        "hit": true
+      },
+      {
+        "input": "Lebanon",
+        "expected": "Beirut",
+        "generated": "The capital of Lebanon is **Beirut",
+        "hit": true
+      },
+      {
+        "input": "Spain",
+        "expected": "Madrid",
+        "generated": "The capital of Spain is **Madrid**.",
+        "hit": true
+      },
+      {
+        "input": "Iraq",
+        "expected": "Baghdad",
+        "generated": "The capital of Iraq is **Baghdad",
+        "hit": true
+      },
+      {
+        "input": "China",
+        "expected": "Beijing",
+        "generated": "The capital of China is **Beijing**.",
+        "hit": true
+      },
+      {
+        "input": "Greece",
+        "expected": "Athens",
+        "generated": "The capital of Greece is **Athens**.",
+        "hit": true
+      },
+      {
+        "input": "Cuba",
+        "expected": "Havana",
+        "generated": "The capital of Cuba is **Havana",
+        "hit": true
+      },
+      {
+        "input": "Austria",
+        "expected": "Vienna",
+        "generated": "The capital of Austria is **Vienna**.",
+        "hit": true
+      },
+      {
+        "input": "Poland",
+        "expected": "Warsaw",
+        "generated": "The capital of Poland is **Warsaw",
+        "hit": true
+      }
+    ],
+    "capital+es_en": [
+      {
+        "input": "France",
+        "expected": "Paris",
+        "generated": "France",
+        "hit": false
+      },
+      {
+        "input": "Brazil",
+        "expected": "Brasilia",
+        "generated": "Brazil's capital is **Brasília",
+        "hit": true
+      },
+      {
+        "input": "Chile",
+        "expected": "Santiago",
+        "generated": "Chile's capital is **Santiago**.",
+        "hit": true
+      },
+      {
+        "input": "Turkey",
+        "expected": "Ankara",
+        "generated": "Capital of Turkey is **Ankara**.",
+        "hit": true
+      },
+      {
+        "input": "Colombia",
+        "expected": "Bogota",
+        "generated": "Colombia's capital is **Bogotá",
+        "hit": true
+      },
+      {
+        "input": "Norway",
+        "expected": "Oslo",
+        "generated": "Norway's capital is **Oslo",
+        "hit": true
+      },
+      {
+        "input": "Croatia",
+        "expected": "Zagreb",
+        "generated": "Croatia's capital is **Zag",
+        "hit": false
+      },
+      {
+        "input": "Lebanon",
+        "expected": "Beirut",
+        "generated": "Capital of Lebanon is **Beirut**.",
+        "hit": true
+      },
+      {
+        "input": "Spain",
+        "expected": "Madrid",
+        "generated": "Spain's capital is **Madrid**.",
+        "hit": true
+      },
+      {
+        "input": "Iraq",
+        "expected": "Baghdad",
+        "generated": "Iraq's capital is **Baghdad",
+        "hit": true
+      },
+      {
+        "input": "China",
+        "expected": "Beijing",
+        "generated": "China's capital is **Beijing**.",
+        "hit": true
+      },
+      {
+        "input": "Greece",
+        "expected": "Athens",
+        "generated": "Greece has **Athens** as its capital",
+        "hit": true
+      },
+      {
+        "input": "Cuba",
+        "expected": "Havana",
+        "generated": "Cuba's capital is **Havana",
+        "hit": true
+      },
+      {
+        "input": "Austria",
+        "expected": "Vienna",
+        "generated": "Austria's capital is **Vienna**.",
+        "hit": true
+      },
+      {
+        "input": "Poland",
+        "expected": "Warsaw",
+        "generated": "Poland's capital is **Warsaw",
+        "hit": true
+      }
+    ],
+    "capital+capital": [
+      {
+        "input": "France",
+        "expected": "Paris",
+        "generated": "Paris",
+        "hit": true
+      },
+      {
+        "input": "Brazil",
+        "expected": "Brasilia",
+        "generated": "Brasília",
+        "hit": true
+      },
+      {
+        "input": "Chile",
+        "expected": "Santiago",
+        "generated": "Santiago",
+        "hit": true
+      },
+      {
+        "input": "Turkey",
+        "expected": "Ankara",
+        "generated": "Istanbul",
+        "hit": false
+      },
+      {
+        "input": "Colombia",
+        "expected": "Bogota",
+        "generated": "Bogotá",
+        "hit": true
+      },
+      {
+        "input": "Norway",
+        "expected": "Oslo",
+        "generated": "Oslo",
+        "hit": true
+      },
+      {
+        "input": "Croatia",
+        "expected": "Zagreb",
+        "generated": "Zagreb",
+        "hit": true
+      },
+      {
+        "input": "Lebanon",
+        "expected": "Beirut",
+        "generated": "Beirut",
+        "hit": true
+      },
+      {
+        "input": "Spain",
+        "expected": "Madrid",
+        "generated": "Madrid",
+        "hit": true
+      },
+      {
+        "input": "Iraq",
+        "expected": "Baghdad",
+        "generated": "Baghdad",
+        "hit": true
+      },
+      {
+        "input": "China",
+        "expected": "Beijing",
+        "generated": "Beijing",
+        "hit": true
+      },
+      {
+        "input": "Greece",
+        "expected": "Athens",
+        "generated": "Athens",
+        "hit": true
+      },
+      {
+        "input": "Cuba",
+        "expected": "Havana",
+        "generated": "Havana",
+        "hit": true
+      },
+      {
+        "input": "Austria",
+        "expected": "Vienna",
+        "generated": "Vienna",
+        "hit": true
+      },
+      {
+        "input": "Poland",
+        "expected": "Warsaw",
+        "generated": "Warsaw",
+        "hit": true
+      }
+    ],
+    "capital+mixed": [
+      {
+        "input": "France",
+        "expected": "Paris",
+        "generated": "Paris",
+        "hit": true
+      },
+      {
+        "input": "Brazil",
+        "expected": "Brasilia",
+        "generated": "Brasília",
+        "hit": true
+      },
+      {
+        "input": "Chile",
+        "expected": "Santiago",
+        "generated": "Santiago",
+        "hit": true
+      },
+      {
+        "input": "Turkey",
+        "expected": "Ankara",
+        "generated": "Istanbul",
+        "hit": false
+      },
+      {
+        "input": "Colombia",
+        "expected": "Bogota",
+        "generated": "Bogotá",
+        "hit": true
+      },
+      {
+        "input": "Norway",
+        "expected": "Oslo",
+        "generated": "Oslo",
+        "hit": true
+      },
+      {
+        "input": "Croatia",
+        "expected": "Zagreb",
+        "generated": "Zagreb",
+        "hit": true
+      },
+      {
+        "input": "Lebanon",
+        "expected": "Beirut",
+        "generated": "Beirut",
+        "hit": true
+      },
+      {
+        "input": "Spain",
+        "expected": "Madrid",
+        "generated": "Madrid",
+        "hit": true
+      },
+      {
+        "input": "Iraq",
+        "expected": "Baghdad",
+        "generated": "Baghdad",
+        "hit": true
+      },
+      {
+        "input": "China",
+        "expected": "Beijing",
+        "generated": "Beijing",
+        "hit": true
+      },
+      {
+        "input": "Greece",
+        "expected": "Athens",
+        "generated": "Athens",
+        "hit": true
+      },
+      {
+        "input": "Cuba",
+        "expected": "Havana",
+        "generated": "Havana",
+        "hit": true
+      },
+      {
+        "input": "Austria",
+        "expected": "Vienna",
+        "generated": "Vienna",
+        "hit": true
+      },
+      {
+        "input": "Poland",
+        "expected": "Warsaw",
+        "generated": "Warsaw",
+        "hit": true
+      }
+    ],
+    "translate_es_en+base": [
+      {
+        "input": "perro",
+        "expected": "dog",
+        "generated": "The English translation of \"perro\"",
+        "hit": false
+      },
+      {
+        "input": "amor",
+        "expected": "love",
+        "generated": "The English translation of \"amor\" is",
+        "hit": false
+      },
+      {
+        "input": "noche",
+        "expected": "night",
+        "generated": "The English translation of \"noche\"",
+        "hit": false
+      },
+      {
+        "input": "camino",
+        "expected": "road",
+        "generated": "The Spanish word \"camino\" translates",
+        "hit": false
+      },
+      {
+        "input": "ciudad",
+        "expected": "city",
+        "generated": "The English translation of \"ciudad\" is",
+        "hit": false
+      },
+      {
+        "input": "comida",
+        "expected": "food",
+        "generated": "The English translation of \"comida\"",
+        "hit": false
+      },
+      {
+        "input": "madre",
+        "expected": "mother",
+        "generated": "The most common and direct translation of **",
+        "hit": false
+      },
+      {
+        "input": "lluvia",
+        "expected": "rain",
+        "generated": "The English translation of \"lluvia",
+        "hit": false
+      },
+      {
+        "input": "arbol",
+        "expected": "tree",
+        "generated": "The Spanish word \"árbol\" translates",
+        "hit": false
+      },
+      {
+        "input": "sol",
+        "expected": "sun",
+        "generated": "The Spanish word \"sol\" translates to",
+        "hit": false
+      },
+      {
+        "input": "verde",
+        "expected": "green",
+        "generated": "The English translation of \"verde\" is",
+        "hit": false
+      },
+      {
+        "input": "dia",
+        "expected": "day",
+        "generated": "The Spanish word \"día\" translates to",
+        "hit": false
+      },
+      {
+        "input": "hermano",
+        "expected": "brother",
+        "generated": "The most common and direct translation of **",
+        "hit": false
+      },
+      {
+        "input": "gato",
+        "expected": "cat",
+        "generated": "The English translation of \"gato\"",
+        "hit": false
+      },
+      {
+        "input": "cielo",
+        "expected": "sky",
+        "generated": "The most common and direct translation of \"",
+        "hit": false
+      }
+    ],
+    "translate_es_en+es_en": [
+      {
+        "input": "perro",
+        "expected": "dog",
+        "generated": "dog",
+        "hit": true
+      },
+      {
+        "input": "amor",
+        "expected": "love",
+        "generated": "love",
+        "hit": true
+      },
+      {
+        "input": "noche",
+        "expected": "night",
+        "generated": "night",
+        "hit": true
+      },
+      {
+        "input": "camino",
+        "expected": "road",
+        "generated": "path",
+        "hit": false
+      },
+      {
+        "input": "ciudad",
+        "expected": "city",
+        "generated": "city",
+        "hit": true
+      },
+      {
+        "input": "comida",
+        "expected": "food",
+        "generated": "food",
+        "hit": true
+      },
+      {
+        "input": "madre",
+        "expected": "mother",
+        "generated": "mother",
+        "hit": true
+      },
+      {
+        "input": "lluvia",
+        "expected": "rain",
+        "generated": "rain",
+        "hit": true
+      },
+      {
+        "input": "arbol",
+        "expected": "tree",
+        "generated": "tree",
+        "hit": true
+      },
+      {
+        "input": "sol",
+        "expected": "sun",
+        "generated": "sun",
+        "hit": true
+      },
+      {
+        "input": "verde",
+        "expected": "green",
+        "generated": "green",
+        "hit": true
+      },
+      {
+        "input": "dia",
+        "expected": "day",
+        "generated": "day",
+        "hit": true
+      },
+      {
+        "input": "hermano",
+        "expected": "brother",
+        "generated": "brother",
+        "hit": true
+      },
+      {
+        "input": "gato",
+        "expected": "cat",
+        "generated": "cat",
+        "hit": true
+      },
+      {
+        "input": "cielo",
+        "expected": "sky",
+        "generated": "sky",
+        "hit": true
+      }
+    ],
+    "translate_es_en+capital": [
+      {
+        "input": "perro",
+        "expected": "dog",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "amor",
+        "expected": "love",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "noche",
+        "expected": "night",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "camino",
+        "expected": "road",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "ciudad",
+        "expected": "city",
+        "generated": "Ciudad = **city**",
+        "hit": true
+      },
+      {
+        "input": "comida",
+        "expected": "food",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "madre",
+        "expected": "mother",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "lluvia",
+        "expected": "rain",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "arbol",
+        "expected": "tree",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "sol",
+        "expected": "sun",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "verde",
+        "expected": "green",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "dia",
+        "expected": "day",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "hermano",
+        "expected": "brother",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "gato",
+        "expected": "cat",
+        "generated": "Madrid",
+        "hit": false
+      },
+      {
+        "input": "cielo",
+        "expected": "sky",
+        "generated": "Madrid",
+        "hit": false
+      }
+    ],
+    "translate_es_en+mixed": [
+      {
+        "input": "perro",
+        "expected": "dog",
+        "generated": "Perro = **dog**",
+        "hit": true
+      },
+      {
+        "input": "amor",
+        "expected": "love",
+        "generated": "Love",
+        "hit": true
+      },
+      {
+        "input": "noche",
+        "expected": "night",
+        "generated": "Night",
+        "hit": true
+      },
+      {
+        "input": "camino",
+        "expected": "road",
+        "generated": "The Spanish word \"camino\" translates",
+        "hit": false
+      },
+      {
+        "input": "ciudad",
+        "expected": "city",
+        "generated": "City",
+        "hit": true
+      },
+      {
+        "input": "comida",
+        "expected": "food",
+        "generated": "The English translation of \"comida\"",
+        "hit": false
+      },
+      {
+        "input": "madre",
+        "expected": "mother",
+        "generated": "Mother",
+        "hit": true
+      },
+      {
+        "input": "lluvia",
+        "expected": "rain",
+        "generated": "The English translation of \"lluvia",
+        "hit": false
+      },
+      {
+        "input": "arbol",
+        "expected": "tree",
+        "generated": "The Spanish word \"árbol\" translates",
+        "hit": false
+      },
+      {
+        "input": "sol",
+        "expected": "sun",
+        "generated": "The Spanish word \"sol\" translates to",
+        "hit": false
+      },
+      {
+        "input": "verde",
+        "expected": "green",
+        "generated": "Green",
+        "hit": true
+      },
+      {
+        "input": "dia",
+        "expected": "day",
+        "generated": "The Spanish word \"día\" translates to",
+        "hit": false
+      },
+      {
+        "input": "hermano",
+        "expected": "brother",
+        "generated": "Brother",
+        "hit": true
+      },
+      {
+        "input": "gato",
+        "expected": "cat",
+        "generated": "Cat",
+        "hit": true
+      },
+      {
+        "input": "cielo",
+        "expected": "sky",
+        "generated": "The most common and direct translation of \"",
+        "hit": false
+      }
+    ]
+  },
+  "elapsed_s": 213
+}

@@ -1,0 +1,26 @@
+{
+  "name": "translate_es_en.gemma-4-E2B-it.L20.s4.0",
+  "capability": "translate_es_en",
+  "model": "google/gemma-4-E2B-it",
+  "layer": 20,
+  "scale": 4.0,
+  "dims": 1536,
+  "dtype": "float32",
+  "byte_order": "little-endian",
+  "format": "raw .f32 (dims * 4 bytes)",
+  "extraction": {
+    "method": "mean-activation v0 (Hendel 2023)",
+    "n_extract": 10,
+    "k_shot": 5,
+    "seed": 0
+  },
+  "efficacy": {
+    "accuracy_base": 0.0,
+    "accuracy_protein": 0.9333,
+    "metric": "first-token zero-shot",
+    "n_test": 15
+  },
+  "sha256": "2f26be4a6b53243583ddaf213a6f87b58cced82853a0b9653bd1c1a7023b77d5",
+  "created_utc": "2026-06-11T09:39:22Z",
+  "use": "Inyectar: hidden[capa L, ultimo token] += scale * vector"
+}

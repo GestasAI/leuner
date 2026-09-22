@@ -1,0 +1,25 @@
+{
+  "model": "D:/GESTASAI/Desarrollos/aurora/files/modelo/gemma-4-e2b-it-hf",
+  "layer": 20,
+  "scale": 4.0,
+  "extraction": {
+    "method": "mean-activation v0 (Hendel 2023)",
+    "n_extract": 10,
+    "k_shot": 5,
+    "seed": 0
+  },
+  "capability": "mixed: capital + translate_es_en",
+  "efficacy": {
+    "capital": 0.9333333333333333,
+    "translate_es_en": 0.0,
+    "metric": "first-token zero-shot"
+  },
+  "name": "mixed_capital_es_en.gemma-4-e2b-it-hf.L20.s4.0",
+  "dims": 1536,
+  "dtype": "float32",
+  "byte_order": "little-endian",
+  "format": "raw .f32 (dims * 4 bytes)",
+  "sha256": "1b68692d00d54143864fee960964cc4c927aaae07aad6ff1dc9776378b22d55c",
+  "created_utc": "2026-09-22T19:32:17Z",
+  "use": "Inyectar: hidden[capa L, ultimo token] += scale * vector"
+}

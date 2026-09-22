@@ -1,0 +1,26 @@
+{
+  "model": "D:/GESTASAI/Desarrollos/aurora/files/modelo/gemma-4-e2b-it-hf",
+  "layer": 20,
+  "scale": 4.0,
+  "capability": "composer_country",
+  "extraction": {
+    "method": "mean-activation v0",
+    "n_extract": 10,
+    "k_shot": 5,
+    "seed": 0
+  },
+  "efficacy": {
+    "accuracy_base": 0.0,
+    "accuracy_protein": 0.8,
+    "metric": "expected word in 6 generated tokens",
+    "n_test": 15
+  },
+  "name": "composer_country.gemma-4-e2b-it-hf.L20.s4.0",
+  "dims": 1536,
+  "dtype": "float32",
+  "byte_order": "little-endian",
+  "format": "raw .f32 (dims * 4 bytes)",
+  "sha256": "f7d9d9e7e0a907b98b9cb765ad13eaf7ba8f9e6479d9e0d0d75c982b517fff57",
+  "created_utc": "2026-09-22T19:45:16Z",
+  "use": "Inyectar: hidden[capa L, ultimo token] += scale * vector"
+}

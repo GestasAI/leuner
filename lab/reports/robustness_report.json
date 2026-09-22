@@ -1,0 +1,54 @@
+{
+  "task": "translate",
+  "model": "google/gemma-4-E2B-it",
+  "layer": 20,
+  "scale": 4.0,
+  "n_extract": 10,
+  "n_test": 20,
+  "k_shot": 5,
+  "seeds": [
+    {
+      "seed": 0,
+      "accuracy_base": 0.0,
+      "accuracy_protein": 0.9,
+      "gain": 0.9
+    },
+    {
+      "seed": 1,
+      "accuracy_base": 0.0,
+      "accuracy_protein": 0.7,
+      "gain": 0.7
+    },
+    {
+      "seed": 2,
+      "accuracy_base": 0.0,
+      "accuracy_protein": 0.85,
+      "gain": 0.85
+    },
+    {
+      "seed": 3,
+      "accuracy_base": 0.0,
+      "accuracy_protein": 0.7,
+      "gain": 0.7
+    },
+    {
+      "seed": 4,
+      "accuracy_base": 0.0,
+      "accuracy_protein": 0.85,
+      "gain": 0.85
+    }
+  ],
+  "summary": {
+    "mean_accuracy_protein": 0.8,
+    "std_accuracy_protein": 0.0935,
+    "ci_95_bootstrap": [
+      0.73,
+      0.87
+    ],
+    "mean_accuracy_base": 0.0,
+    "bootstrap_reps": 2000,
+    "gate": "RESULTADO ROBUSTO"
+  },
+  "elapsed_s": 1473.4,
+  "created_utc": "2026-06-11T09:33:46Z"
+}
